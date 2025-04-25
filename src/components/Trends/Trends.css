@@ -1,0 +1,133 @@
+.trends {
+  padding: clamp(40px, 8vw, 80px) 0;
+  text-align: center; /* Ensure the entire section has center alignment */
+  background-color: #fff5f5;
+  margin-top: clamp(40px, 8vw, 80px);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  text-align: center; /* Ensure container content is centered */
+}
+
+.section-title {
+  font-size: clamp(24px, 5vw, 32px);
+  font-weight: 700; 
+  color: #333;
+  margin-bottom: clamp(12px, 2vw, 16px);
+  line-height: 1.2;
+  text-align: center !important; /* Added !important to ensure it overrides any conflicting styles */
+  width: 100%; /* Ensure the title takes full width */
+  display: block; /* Make sure it's a block element */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.trends-subtitle {
+  margin-bottom: clamp(30px, 5vw, 50px);
+  color: #666;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: clamp(14px, 3vw, 16px);
+  line-height: 1.5;
+  text-align: center; /* Ensure center alignment */
+}
+
+.trends-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 370px)); /* Adjusted for 370px width */
+  gap: clamp(20px, 4vw, 30px);
+  justify-content: center; /* Center the grid items */
+  width: 100%;
+  margin: 0 auto;
+}
+
+.trend-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  width: 100%;
+  max-width: 370px; /* Set max width */
+  height: 370px; /* Fixed height */
+  margin: 0 auto; /* Center cards */
+}
+
+.trend-card:hover {
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.trend-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.trend-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+
+
+.trend-title-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 15px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), #e8d0c585);
+  transition: all 0.3s ease;
+}
+
+.trend-title {
+  font-size: clamp(16px, 3vw, 18px);
+  font-weight: 600;
+  color: white;
+  margin: 0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .trend-card {
+    height: 300px; /* Smaller height on mobile */
+  }
+  
+  .trend-title-overlay {
+    padding: 15px 10px;
+  }
+  
+  .trend-title {
+    font-size: 15px;
+  }
+}
+
+/* For larger screens, maintain grid layout */
+@media (min-width: 768px) {
+  .trends-grid {
+    grid-template-columns: repeat(2, 370px); /* Exactly 370px width */
+  }
+}
+
+@media (min-width: 1200px) {
+  .trends-grid {
+    grid-template-columns: repeat(3, 370px); /* Exactly 370px width */
+  }
+}
+
+@media (min-width: 1600px) {
+  .trends-grid {
+    grid-template-columns: repeat(4, 370px); /* Exactly 370px width */
+  }
+}

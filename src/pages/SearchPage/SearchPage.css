@@ -1,0 +1,365 @@
+/* src/pages/SearchPage/SearchPage.css */
+.search-page {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #333333;
+  background-color: #FFFFFF;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+margin-top: 80px;
+}
+
+/* Content Container */
+.content-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+}
+
+/* Results Header */
+.results-header {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #EFEFEF;
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.results-header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.results-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.results-title h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+/* Category Tabs */
+.category-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #EFEFEF;
+}
+
+.category-tab {
+  background: none;
+  border: none;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.category-tab:hover {
+  color: #333;
+}
+
+.category-tab.active {
+  color: #D14D72;
+  font-weight: 600;
+}
+
+.category-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #D14D72;
+}
+
+/* Active Filters */
+.active-filters {
+  margin-bottom: 16px;
+  animation: fadeIn 0.3s ease;
+}
+
+.filter-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-tag {
+  display: flex;
+  align-items: center;
+  background-color: #f8f8f8;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 13px;
+  color: #555;
+  transition: all 0.2s ease;
+}
+
+.filter-tag:hover {
+  background-color: #f0f0f0;
+}
+
+.remove-tag {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 16px;
+  margin-left: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2px;
+  transition: color 0.2s ease;
+}
+
+.remove-tag:hover {
+  color: #D14D72;
+}
+
+.clear-all-filters {
+  background-color: #D14D72;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clear-all-filters:hover {
+  background-color: #D14D72;
+  transform: translateY(-1px);
+}
+
+/* Content Layout */
+.content-layout {
+  display: flex;
+  flex: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 24px;
+}
+
+/* Split View (Default) */
+.content-layout.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* List View */
+.content-layout.list {
+  display: block;
+}
+
+.content-layout.list .map-container {
+  display: none;
+}
+
+/* Map View */
+.content-layout.map .results-container {
+  display: none;
+}
+
+.content-layout.map .map-container {
+  width: 100%;
+}
+
+/* Results Container */
+
+
+.results-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.results-container::-webkit-scrollbar-track {
+  background: #f7f7f7;
+}
+
+.results-container::-webkit-scrollbar-thumb {
+  background-color: #d1d1d1;
+  border-radius: 20px;
+}
+
+.results-container::-webkit-scrollbar-thumb:hover {
+  background-color: #a8a8a8;
+}
+
+/* Map Container */
+.map-container {
+  position: sticky;
+  top: 100px;
+  height: calc(100vh - 200px);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-top: 20px;
+}
+
+/* Pagination Controls */
+.pagination-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+  padding: 16px 0;
+}
+
+.pagination-next {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.pagination-next:hover {
+  background-color: #FFF5F5;
+}
+
+/* Mobile View Toggle */
+.mobile-view-toggle {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.mobile-view-toggle:hover {
+  background-color: #D14D72;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.mobile-view-toggle svg {
+  font-size: 16px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .content-layout.split {
+    grid-template-columns: 3fr 2fr;
+  }
+}
+
+@media (max-width: 992px) {
+  .content-layout.split {
+    grid-template-columns: 1fr;
+  }
+  
+  .map-container {
+    display: none;
+  }
+  
+  .mobile-view-toggle {
+    display: flex;
+  }
+  
+  .content-layout.map .map-container {
+    display: block;
+    height: calc(100vh - 180px);
+    position: fixed;
+    top: 180px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .results-header-content {
+    padding: 0 16px;
+  }
+  
+  .results-title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .results-title h1 {
+    font-size: 18px;
+  }
+  
+  .category-tabs {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 4px;
+    margin-bottom: 12px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .category-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .category-tab {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+  
+  .content-layout {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .results-header {
+    padding: 16px 0;
+  }
+  
+  .results-title h1 {
+    font-size: 16px;
+  }
+  
+  .category-tab {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+}

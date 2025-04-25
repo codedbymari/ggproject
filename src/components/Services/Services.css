@@ -1,0 +1,185 @@
+.services {
+  padding: 80px 0;
+  background-color: #fff;
+}
+
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 40px;
+  color: #000;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px; /* Increased gap */
+  max-width: 1100px; /* Slightly increased max-width */
+  margin: 0 auto;
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%; /* Ensure full height */
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-image-container {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%; /* Creates a square aspect ratio */
+  position: relative;
+  overflow: hidden;
+  background-color: #f5f5f5; /* Fallback background color */
+}
+
+.service-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Keep this to maintain aspect ratio */
+  object-position: center; /* Center the image */
+  transition: transform 0.5s ease;
+}
+
+.service-card:hover .service-image {
+  transform: scale(1.05);
+}
+
+.service-title-container {
+  background-color: #fff;
+  padding: 15px 10px;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+}
+
+.service-title {
+  font-size: 1.1rem; /* Slightly increased font size */
+  font-weight: 400;
+  color: #000;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Overlay effect on hover */
+.service-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 50px); /* Exclude title container */
+  background-color: rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-card:hover .service-overlay {
+  opacity: 1;
+}
+
+.view-more {
+  background-color: white;
+  color: black;
+  padding: 8px 16px;
+  border: none;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.service-card:hover .view-more {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2.2rem;
+  }
+  
+  .service-card {
+    min-height: 280px; /* Set minimum height for larger screens */
+  }
+}
+
+@media (min-width: 992px) {
+  .services {
+    padding: 80px 0;
+  }
+  
+  .services-grid {
+    gap: 35px; /* Slightly increased gap for larger screens */
+  }
+  
+  .service-title {
+    font-size: 1.2rem; /* Slightly increased font size */
+  }
+  
+  .service-card {
+    min-height: 320px; /* Increased minimum height for largest screens */
+  }
+}
+
+@media (max-width: 767px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px; /* Increased gap for medium screens */
+  }
+  
+  .service-card {
+    min-height: 250px; /* Set minimum height for medium screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    max-width: 350px; /* Increased from 320px */
+    margin: 0 auto;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .service-card {
+    min-height: 300px; /* Set minimum height for smallest screens */
+  }
+}

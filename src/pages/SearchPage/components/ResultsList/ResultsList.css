@@ -1,0 +1,56 @@
+/* src/pages/SearchPage/components/ResultsList/ResultsList.css */
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .empty-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 0;
+    text-align: center;
+  }
+  
+  .empty-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    color: #ddd;
+  }
+  
+  .empty-results h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  .empty-results p {
+    font-size: 15px;
+    color: #666;
+    max-width: 400px;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 992px) {
+    .results-grid {
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .results-grid {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .results-grid {
+      grid-template-columns: 1fr;
+    }
+  }

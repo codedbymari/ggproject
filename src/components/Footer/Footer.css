@@ -1,0 +1,148 @@
+.footer {
+  background-color: rgb(255, 255, 255);
+  padding: 80px 0;
+  width: 100%;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Position social icons to the left */
+.footer-social {
+  order: 1;
+}
+
+.footer-social .social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+
+
+.social-icons img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Center the navigation */
+.footer-nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  order: 2;
+}
+
+.footer-links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-links li {
+  margin: 0;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  transition: opacity 0.3s;
+  position: relative;
+}
+
+/* Dot hover effect for footer links */
+.footer-links a::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background-color: #000;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover::before {
+  opacity: 1;
+}
+
+/* Position copyright to the right */
+.footer-copyright {
+  order: 3;
+}
+
+.footer-copyright p {
+  color: #333;
+  font-size: 14px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Hide footer on mobile devices */
+@media (max-width: 768px) {
+  .footer {
+    display: none;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .footer-container {
+    padding: 0 20px;
+  }
+  
+  .footer-content {
+    gap: 20px;
+  }
+}
+
+/* Small desktop adjustments */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .footer-container {
+    padding: 0 30px;
+  }
+}
+
+/* Handle very small desktop screens where flex might wrap */
+@media (min-width: 769px) and (max-width: 900px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .footer-social, .footer-nav, .footer-copyright {
+    width: 100%;
+  }
+  
+  .footer-social .social-icons {
+    justify-content: center;
+  }
+}
+

@@ -1,0 +1,13 @@
+/* src/pages/Service/styles/variables.css */
+:root {
+    --primary-color: #FFF5F5;
+    --accent-color: #FF3B60;
+    --dark-text: #333333;
+    --light-text: #777777;
+    --border-color: #E0E0E0;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --hover-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    --primary-gradient: linear-gradient(135deg, #FF3B60, #FF8E8E);
+    --transition-speed: 0.3s;
+  }
