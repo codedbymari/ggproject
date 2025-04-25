@@ -76,7 +76,7 @@ const Header = () => {
         
         <div className="logo">
           <Link to="/">
-            <img src={logo} alt="GlamorousAh Logo" />
+            <img src={logo} alt="GlamorgramLogo" />
           </Link>
         </div>
         
@@ -91,6 +91,13 @@ const Header = () => {
             <li><a href="#featured" onClick={handleMenuItemClick}>Featured Services</a></li>
             <li><Link to="/about" onClick={handleMenuItemClick}>About us</Link></li>
             <li><Link to="/business" onClick={handleMenuItemClick}>GlamorGram Business</Link></li>
+            <li><Link to="/faq" onClick={handleMenuItemClick}>FAQ</Link></li>
+            <li><Link to="/contact" onClick={handleMenuItemClick}>Contact us</Link></li>
+            <li><Link to="/freelancer-guide" onClick={handleMenuItemClick}>Freelancer Guide</Link></li>
+
+
+
+            
           </ul>
           
           <div className="mobile-user-actions">
