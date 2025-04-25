@@ -78,7 +78,7 @@
     height: 56px;
     border-radius: 50%;
     background-color: #FFF5F5;
-    color: #FF6B6B;
+    color: #D14D72;
     margin-bottom: 20px;
   }
   
@@ -102,7 +102,7 @@
   
   .contact-link {
     display: inline-block;
-    color: #FF6B6B;
+    color: #D14D72;
     text-decoration: none;
     font-weight: 600;
     margin-top: 10px;
@@ -305,23 +305,39 @@
     }
   }
   
+  
+
+
   @media (max-width: 480px) {
-    .contact-hero {
-      padding: 50px 0;
+    .contact-info .contact-card {
+      flex: 1 1 100%;
     }
-    
-    .contact-heading {
-      font-size: 1.8rem;
+  
+    .contact-card {
+      padding: 20px;
     }
-    
-    .contact-form-container {
-      padding: 25px 20px;
+  
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font-size: 0.95rem;
+      padding: 12px 14px;
     }
-    
-    .submit-button {
-      padding: 14px 20px;
+  
+    .contact-link {
+      font-size: 0.95rem;
+    }
+  
+    .success-message {
+      padding: 20px;
+    }
+  
+    .success-message h3 {
+      font-size: 1.5rem;
+    }
+  
+    .success-message p {
       font-size: 1rem;
     }
-    
-  
   }
+  
