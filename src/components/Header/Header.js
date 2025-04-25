@@ -110,7 +110,7 @@ const Header = () => {
               <a href="#" aria-label="Twitter">TW</a>
               <a href="#" aria-label="TikTok">TK</a>
             </div>
-            <p>© 2023 GlamorousAh. All rights reserved.</p>
+            <p>© 2025 Glamorgram. </p>
           </div>
         </nav>
         
