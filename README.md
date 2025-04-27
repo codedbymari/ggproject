@@ -1,4 +1,6 @@
-# project structure:
+# Project Structure:
+
+```plaintext
 src/
 ├── assets/            # Static assets (images, icons)
 ├── components/        # Reusable UI components
@@ -24,8 +26,5 @@ src/
 │       └── utils/     # Dummy data to show how search results will look
 └── App.js             # Main application component
 
-
 ## more info:
 Index.html: contains metadata that is useful and important for search results 
-
-
