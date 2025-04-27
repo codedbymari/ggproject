@@ -123,13 +123,7 @@
   text-decoration: underline;
 }
 
-/* Dark mode adjustments */
-@media (prefers-color-scheme: dark) {
-  .form-group input {
-    background-color: #1e1e1e;
-    color: var(--text-primary);
-  }
-}
+
 
 /* Hide on desktop */
 @media (min-width: 992px) {

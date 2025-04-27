@@ -359,37 +359,7 @@
   flex: 1;
 }
 
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-  .auth-modal, .mobile-auth-panel {
-    background-color: #1a1a1a;
-  }
-  
-  .modal-close-btn:hover, .mobile-close-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .form-group input {
-    background-color: #1e1e1e;
-    color: var(--text-primary);
-  }
-  
-  .google-btn {
-    background-color: #2a2a2a;
-    color: #e0e0e0;
-    border-color: #444;
-  }
-  
-  .google-btn:hover {
-    background-color: #333;
-  }
-  
 
-  
-  .vertical-divider::before, .divider::before, .divider::after {
-    background-color: #444;
-  }
-}
 
 /* Desktop enhancements */
 @media (min-width: 768px) {

@@ -48,18 +48,4 @@
     --button-hover: #333333;
   }
   
-  /* Dark Mode Variables */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --header-bg: #121212;
-      --header-border: rgba(255, 255, 255, 0.1);
-      --text-primary: #e0e0e0;
-      --text-hover: #ffffff;
-      --accent-color: #ffffff;
-      --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.2);
-      --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.3);
-      --button-bg: #ffffff;
-      --button-text: #121212;
-      --button-hover: #e0e0e0;
-    }
-  }
+  
