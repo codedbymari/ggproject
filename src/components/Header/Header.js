@@ -281,7 +281,6 @@ const Header = () => {
             >
               <span>×</span>
             </button>
-            <h2>Account</h2>
           </div>
           
           <div className="auth-tabs">
