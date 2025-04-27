@@ -1,12 +1,10 @@
-// src/pages/SearchPage/components/FilterPanel/FilterPanel.js
 import React from 'react';
 import { FaTimes, FaCheck, FaStar } from 'react-icons/fa';
 import './FilterPanel.css';
 
 /**
  * FilterPanel Component
- * 
- * Provides filtering and sorting options for search results
+
  */
 const FilterPanel = ({ 
   filterOptions, 

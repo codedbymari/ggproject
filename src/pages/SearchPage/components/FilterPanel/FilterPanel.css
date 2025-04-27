@@ -1,4 +1,3 @@
-/* src/pages/SearchPage/components/FilterPanel/FilterPanel.css */
 .filter-panel {
     position: absolute;
     top: calc(100% + 8px);
@@ -106,11 +105,11 @@
   .sort-option.active {
     background-color: #f7f7f7;
     font-weight: 500;
-    color: #FF69B4;
+    color: black;
   }
   
   .check-icon {
-    color: #FF69B4;
+    color: #f8adad;
     font-size: 12px;
   }
   
@@ -151,7 +150,7 @@
     width: 20px;
     height: 20px;
     background-color: white;
-    border: 2px solid #FF69B4;
+    border: 2px solid #f8adad;
     border-radius: 50%;
     cursor: pointer;
     pointer-events: auto;
@@ -168,7 +167,7 @@
     width: 20px;
     height: 20px;
     background-color: white;
-    border: 2px solid #FF69B4;
+    border: 2px solid #f8adad;
     border-radius: 50%;
     cursor: pointer;
     pointer-events: auto;
@@ -198,7 +197,7 @@
   .star-btn {
     background: none;
     border: none;
-    color: #d1d1d1;
+    color: #f8adad;
     font-size: 24px;
     cursor: pointer;
     transition: color 0.2s ease, transform 0.2s ease;
@@ -235,7 +234,7 @@
   }
   
   .service-checkbox input {
-    accent-color: #FF69B4;
+    accent-color: #f8adad;
     width: 16px;
     height: 16px;
     cursor: pointer;
@@ -268,7 +267,7 @@
   }
   
   .apply-btn {
-    background-color: #FF69B4;
+    background-color: black;
     border: none;
     color: white;
     padding: 10px 24px;
@@ -278,18 +277,14 @@
     cursor: pointer;
     transition: all 0.2s ease;
     flex: 2;
-    box-shadow: 0 2px 4px rgba(255, 105, 180, 0.3);
   }
   
   .apply-btn:hover {
-    background-color: #ff4aa6;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(255, 105, 180, 0.4);
+    background-color: #333;
   }
   
   .apply-btn:active {
     transform: translateY(0);
-    box-shadow: 0 1px 2px rgba(255, 105, 180, 0.3);
   }
   
   /* Scrollbar styling */

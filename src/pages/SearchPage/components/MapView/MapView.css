@@ -14,7 +14,7 @@
   }
   
   .price-marker {
-    background-color: #FF69B4;
+    background-color: #D14D72;
     color: white;
     border-radius: 4px;
     padding: 6px 10px;
@@ -37,7 +37,7 @@
     height: 0;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
-    border-top: 6px solid #FF69B4;
+    border-top: 6px solid #f8adad;
   }
   
   .price-marker:hover {
@@ -99,11 +99,11 @@
   
   .popup-service span {
     font-weight: 600;
-    color: #FF69B4;
+    color: #f8adad;
   }
   
   .popup-btn {
-    background-color: #FF69B4;
+    background-color: #f8adad;
     color: white;
     border: none;
     padding: 8px 12px;

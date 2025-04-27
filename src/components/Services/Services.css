@@ -30,8 +30,8 @@
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px; /* Increased gap */
-  max-width: 1100px; /* Slightly increased max-width */
+  gap: 30px; 
+  max-width: 1100px; 
   margin: 0 auto;
 }
 
@@ -43,7 +43,7 @@
   position: relative;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 100%; /* Ensure full height */
+  height: 100%; 
 }
 
 .service-card:hover {
@@ -54,10 +54,10 @@
 .service-image-container {
   width: 100%;
   height: 0;
-  padding-bottom: 100%; /* Creates a square aspect ratio */
+  padding-bottom: 100%; 
   position: relative;
   overflow: hidden;
-  background-color: #f5f5f5; /* Fallback background color */
+  background-color: #f5f5f5; 
 }
 
 .service-image {
@@ -66,8 +66,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Keep this to maintain aspect ratio */
-  object-position: center; /* Center the image */
+  object-fit: cover; 
+  object-position: center; 
   transition: transform 0.5s ease;
 }
 
@@ -83,7 +83,7 @@
 }
 
 .service-title {
-  font-size: 1.1rem; /* Slightly increased font size */
+  font-size: 1.1rem; 
   font-weight: 400;
   color: #000;
   margin: 0;
@@ -97,7 +97,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: calc(100% - 50px); /* Exclude title container */
+  height: calc(100% - 50px); 
   background-color: rgba(0, 0, 0, 0.1);
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -135,7 +135,7 @@
   }
   
   .service-card {
-    min-height: 280px; /* Set minimum height for larger screens */
+    min-height: 280px; 
   }
 }
 
@@ -145,33 +145,33 @@
   }
   
   .services-grid {
-    gap: 35px; /* Slightly increased gap for larger screens */
+    gap: 35px; 
   }
   
   .service-title {
-    font-size: 1.2rem; /* Slightly increased font size */
+    font-size: 1.2rem; 
   }
   
   .service-card {
-    min-height: 320px; /* Increased minimum height for largest screens */
+    min-height: 320px; 
   }
 }
 
 @media (max-width: 767px) {
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 25px; /* Increased gap for medium screens */
+    gap: 25px; 
   }
   
   .service-card {
-    min-height: 250px; /* Set minimum height for medium screens */
+    min-height: 250px; 
   }
 }
 
 @media (max-width: 480px) {
   .services-grid {
     grid-template-columns: 1fr;
-    max-width: 350px; /* Increased from 320px */
+    max-width: 350px; 
     margin: 0 auto;
   }
   
@@ -180,6 +180,6 @@
   }
   
   .service-card {
-    min-height: 300px; /* Set minimum height for smallest screens */
+    min-height: 300px; 
   }
 }

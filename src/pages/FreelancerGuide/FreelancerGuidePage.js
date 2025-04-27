@@ -10,7 +10,6 @@ const FreelancerGuidelines = () => {
   const [expandedItems, setExpandedItems] = useState({});
   const [isMobile, setIsMobile] = useState(false);
   
-  // Check if screen is mobile on mount and resize
   useEffect(() => {
     const checkIsMobile = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -22,7 +21,6 @@ const FreelancerGuidelines = () => {
     return () => window.removeEventListener('resize', checkIsMobile);
   }, []);
   
-  // Initialize all items as expanded on desktop
   useEffect(() => {
     if (!isMobile) {
       const allExpanded = {};
@@ -63,7 +61,7 @@ const FreelancerGuidelines = () => {
     }
   };
 
-  // Guidelines data remains the same
+  // Guidelines 
   const guidelines = [
     {
       id: 1,

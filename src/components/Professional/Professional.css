@@ -60,15 +60,15 @@
   box-shadow: 0 2px 4px rgba(232, 160, 191, 0.1);
 }
 
-/* Responsive adjustments - allow text to wrap on smaller screens */
+/* Responsive  */
 @media (max-width: 520px) {
   .professional-title,
   .professional-subtitle {
-    white-space: normal; /* Allow text to wrap on small screens */
+    white-space: normal; 
   }
   
   .professional {
-    max-width: 336px; /* Return to original width on mobile */
+    max-width: 336px;
   }
 }
 

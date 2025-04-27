@@ -1,5 +1,4 @@
 // src/constants/imagePaths.js
-// Using relative paths for better compatibility
 export const IMAGE_PATHS = {
     HAIR_BY_J: "./images/hairbyjj.png",
     EXAMPLE_2: "./images/example2.png",
@@ -8,5 +7,5 @@ export const IMAGE_PATHS = {
     NAILS: "./images/nails.png",
     MAKEUP: "./images/makeup.png",
     MAKEUP1: "./images/makeup1.png",
-    FALLBACK: "./images/hairbyjj.png" // Using a known image as fallback
+    FALLBACK: "./images/hairbyjj.png"
   };

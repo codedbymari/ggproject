@@ -44,5 +44,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-leaflet|@react-leaflet/core)"
+    ],
+    "moduleNameMapper": {
+    "\\.(css|less|sass|scss)$": "identity-obj-proxy"
+  }
   }
 }
+

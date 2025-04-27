@@ -1,0 +1,43 @@
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  
+  /* High Contrast Mode Support */
+  @media (forced-colors: active) {
+    .hamburger span {
+      background-color: CanvasText;
+    }
+    
+    .desktop-nav .nav-links a::before,
+    .desktop-nav .nav-links a::after {
+      background-color: CanvasText;
+    }
+    
+    .mobile-footer .social-icons a {
+      border: 1px solid CanvasText;
+    }
+  }
+  
+  /* Focus styles for keyboard navigation */
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+  }
+  
+  /* Improved touch targets for mobile */
+  @media (max-width: 991px) {
+    .mobile-service-item,
+    .mobile-close-btn,
+    .nav-menu .nav-links a {
+      min-height: 44px; 
+      display: flex;
+      align-items: center;
+    }
+  }

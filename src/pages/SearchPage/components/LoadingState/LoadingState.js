@@ -1,11 +1,8 @@
-// src/pages/SearchPage/components/LoadingState/LoadingState.js
 import React from 'react';
 import './LoadingState.css';
 
 /**
- * LoadingState Component
- * 
- * Displays a loading animation while content is being fetched
+ *  a loading animation while content is being fetched
  */
 const LoadingState = () => {
   return (

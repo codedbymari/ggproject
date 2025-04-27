@@ -12,23 +12,18 @@ import LoadingState from './components/LoadingState/LoadingState';
 import { dummyData } from './utils/dummyData';
 import './SearchPage.css';
 
-/**
-SearchPage Component
 
-Main component for the search functionality that combines a list view of service providers
-with an interactive map. Handles search, filtering, and display of results.
- */
 const SearchPage = () => {
-  // Get category from URL params
+  // Get category from URL 
   const { category: urlCategory } = useParams();
   
-  // State for search parameters and results
+  // State for search  and results
   const [category, setCategory] = useState(urlCategory || 'HAIR');
   const [searchTerm, setSearchTerm] = useState('');
   const [locationTerm, setLocationTerm] = useState('Birmingham');
   const [searchResults, setSearchResults] = useState([]);
   
-  // UI state
+  // UI 
   const [viewMode, setViewMode] = useState('split'); // 'split', 'list', or 'map'
   const [selectedDate, setSelectedDate] = useState('Any Date');
   const [loading, setLoading] = useState(true);
@@ -37,7 +32,7 @@ const SearchPage = () => {
   const [activeSort, setActiveSort] = useState('recommended');
   const [resultsCount, setResultsCount] = useState(0);
   
-  // Filter options state
+  // Filter options 
   const [filterOptions, setFilterOptions] = useState({
     priceRange: [0, 500],
     rating: 0,
@@ -50,16 +45,14 @@ const SearchPage = () => {
   const datePanelRef = useRef(null);
   const resultsContainerRef = useRef(null);
 
-  // Update category when URL param changes
+  // Update category when URL  changes
   useEffect(() => {
     if (urlCategory && urlCategory !== category) {
       setCategory(urlCategory);
     }
   }, [urlCategory]);
 
-  /**
-Handle clicks outside filter panels to close them
-   */
+
   useEffect(() => {
     function handleClickOutside(event) {
       if (filterPanelRef.current && !filterPanelRef.current.contains(event.target) && 
@@ -78,19 +71,14 @@ Handle clicks outside filter panels to close them
     };
   }, []);
 
-  /**
-Fetch search results when category or filters change
-This simulates an API call to a backend service
-   */
+
   useEffect(() => {
     const fetchSearchResults = async () => {
       setLoading(true);
       
       try {
-        // Simulate API call with delay
         await new Promise(resolve => setTimeout(resolve, 800));
         
-        // Get data for the selected category
         const categoryResults = dummyData[category] || [];
         setSearchResults(categoryResults);
         setResultsCount(categoryResults.length);
@@ -106,9 +94,7 @@ This simulates an API call to a backend service
     fetchSearchResults();
   }, [category]);
 
-  /**
-Toggle favorite status for a salon
-   */
+
   const toggleFavorite = useCallback((id) => {
     setSearchResults(prevResults => 
       prevResults.map(item => 
@@ -117,14 +103,11 @@ Toggle favorite status for a salon
     );
   }, []);
 
-  /**
-Handle search form submission
-   */
+
   const handleSearch = useCallback((e) => {
     e.preventDefault();
     setLoading(true);
     
-    // Simulate search API call
     setTimeout(() => {
       const filteredResults = dummyData[category]?.filter(item => {
         const matchesSearch = searchTerm ? 
@@ -145,14 +128,13 @@ Handle search form submission
     }, 600);
   }, [searchTerm, locationTerm, category]);
 
-  /**
-Apply selected filters to search results
-   */
+
   const applyFilters = useCallback(() => {
     setLoading(true);
     
     setTimeout(() => {
       const filteredResults = dummyData[category]?.filter(item => {
+       
         // Filter by rating
         if (item.rating < filterOptions.rating) {
           return false;
@@ -214,8 +196,7 @@ Apply selected filters to search results
           });
           break;
           
-        default: // 'recommended'
-          // Keep original order which is assumed to be recommended
+        default: 
           break;
       }
       

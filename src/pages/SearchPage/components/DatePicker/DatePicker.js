@@ -1,12 +1,8 @@
-// src/pages/SearchPage/components/DatePicker/DatePicker.js
 import React, { useState } from 'react';
 import { FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './DatePicker.css';
 
-/**
- * DatePicker Component
- * 
- * Allows users to select a date for their appointment
+/* DatePicker Component
  */
 const DatePicker = ({ selectedDate, setSelectedDate, onClose, datePanelRef }) => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -24,7 +20,7 @@ const DatePicker = ({ selectedDate, setSelectedDate, onClose, datePanelRef }) =>
   
   // Get first day of month (0 = Sunday, 1 = Monday, etc.)
   const firstDayOfMonth = new Date(currentYear, currentMonthIndex, 1).getDay();
-  const startingDay = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1; // Adjust for Monday start
+  const startingDay = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1; 
   
   // Generate calendar days
   const calendarDays = [];

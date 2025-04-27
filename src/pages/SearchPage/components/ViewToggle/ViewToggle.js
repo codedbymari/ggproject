@@ -1,12 +1,8 @@
-// src/pages/SearchPage/components/ViewToggle/ViewToggle.js
 import React from 'react';
 import { FaList, FaMap, FaColumns } from 'react-icons/fa';
 import './ViewToggle.css';
 
-/**
- * ViewToggle Component
- * 
- * Allows users to switch between list, map, and split views
+/* Allows users to switch between list, map, and split views
  */
 const ViewToggle = ({ viewMode, onToggleView }) => {
   return (

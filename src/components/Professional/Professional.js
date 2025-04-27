@@ -14,7 +14,6 @@ const Professional = () => {
             to="/business" 
             className="cta-button-business"
             onClick={(e) => {
-              // Navigate to business page and scroll to top
               window.scrollTo(0, 0);
             }}
           >

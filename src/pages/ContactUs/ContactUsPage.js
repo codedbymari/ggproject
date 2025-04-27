@@ -12,6 +12,22 @@ const ContactPage = () => {
   });
   
   const [submitted, setSubmitted] = useState(false);
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  const validateForm = () => {
+    const errors = {};
+    if (!formData.name.trim()) errors.name = "Name is required";
+    if (!formData.email.trim()) {
+      errors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = "Email address is invalid";
+    }
+    if (!formData.message.trim()) errors.message = "Message is required";
+    
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
   
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,24 +35,39 @@ const ContactPage = () => {
       ...prevState,
       [name]: value
     }));
+    
+    if (formErrors[name]) {
+      setFormErrors({
+        ...formErrors,
+        [name]: null
+      });
+    }
   };
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would normally handle the form submission to your backend
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
     
-    // Reset form after showing success message
-    setTimeout(() => {
-      setFormData({
-        name: '',
-        email: '',
-        subject: 'Technical Support',
-        message: '',
-      });
-      setSubmitted(false);
-    }, 5000);
+    if (validateForm()) {
+      setIsSubmitting(true);
+      
+      //  put API call here 
+      setTimeout(() => {
+        console.log('Form submitted:', formData);
+        setSubmitted(true);
+        setIsSubmitting(false);
+        
+        // Reset form after showing success message
+        setTimeout(() => {
+          setFormData({
+            name: '',
+            email: '',
+            subject: 'Technical Support',
+            message: '',
+          });
+          setSubmitted(false);
+        }, 5000);
+      }, 1000);
+    }
   };
   
   return (
@@ -58,17 +89,32 @@ const ContactPage = () => {
           <div className="container">
             <div className="contact-grid">
               <div className="contact-info">
-                          
-                 
                 <div className="contact-card">
-                  <div className="contact-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <line x1="12" y1="8" x2="12" y2="12"></line>
-                      <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                    </svg>
+                  <div className="contact-icon-wrapper">
+                    <div className="contact-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                      </svg>
+                    </div>
+                  </div>
+                  <h3>Email Us</h3>
+                  <p>For direct inquiries, you can reach our support team at:</p>
+                  <a href="mailto:info@glamorgram.com" className="contact-link">info@glamorgram.com</a>
+                </div>
+                
+                <div className="contact-card">
+                  <div className="contact-icon-wrapper">
+                    <div className="contact-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                      </svg>
+                    </div>
                   </div>
                   <h3>Help Center</h3>
+                  <p>Find answers to common questions in our FAQ page.</p>
                   <a href="/faq" className="contact-link">Visit our FAQ page</a>
                 </div>
               </div>
@@ -76,7 +122,6 @@ const ContactPage = () => {
               <div className="contact-form-container">
                 <div className="form-header">
                   <h2>Send Us a Message</h2>
-                  <p>We'd love to hear from you. Please fill out this form.</p>
                 </div>
                 
                 {submitted ? (
@@ -91,7 +136,7 @@ const ContactPage = () => {
                     <p>Thank you for reaching out. We'll get back to you soon.</p>
                   </div>
                 ) : (
-                  <form className="contact-form" onSubmit={handleSubmit}>
+                  <form className="contact-form" onSubmit={handleSubmit} noValidate>
                     <div className="form-group">
                       <label htmlFor="name">Your Name</label>
                       <input
@@ -102,7 +147,10 @@ const ContactPage = () => {
                         onChange={handleChange}
                         placeholder="Enter your full name"
                         required
+                        className={formErrors.name ? "error" : ""}
+                        aria-describedby={formErrors.name ? "name-error" : undefined}
                       />
+                      {formErrors.name && <div className="error-message" id="name-error">{formErrors.name}</div>}
                     </div>
                     
                     <div className="form-group">
@@ -115,24 +163,29 @@ const ContactPage = () => {
                         onChange={handleChange}
                         placeholder="your@email.com"
                         required
+                        className={formErrors.email ? "error" : ""}
+                        aria-describedby={formErrors.email ? "email-error" : undefined}
                       />
+                      {formErrors.email && <div className="error-message" id="email-error">{formErrors.email}</div>}
                     </div>
                     
-                    <div className="form-group">
-                      <label htmlFor="subject">Subject</label>
-                      <select
-                        id="subject"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleChange}
-                        required
-                      >
-                        <option value="Technical Support">Technical Support</option>
-                        <option value="Account Issues">Account Issues</option>
-                        <option value="Payment Problems">Payment Problems</option>
-                        <option value="Feature Request">Feature Request</option>
-                        <option value="Other">Other</option>
-                      </select>
+                    <div className="form-row">
+                      <div className="form-group">
+                        <label htmlFor="subject">Subject</label>
+                        <select
+                          id="subject"
+                          name="subject"
+                          value={formData.subject}
+                          onChange={handleChange}
+                          required
+                        >
+                          <option value="Technical Support">Technical Support</option>
+                          <option value="Account Issues">Account Issues</option>
+                          <option value="Payment Problems">Payment Problems</option>
+                          <option value="Feature Request">Feature Request</option>
+                          <option value="Other">Other</option>
+                        </select>
+                      </div>
                     </div>
                     
                     <div className="form-group">
@@ -142,14 +195,28 @@ const ContactPage = () => {
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
-                        placeholder="Please describe your issue in detail..."
+                        placeholder="Enter your message here..."
                         rows="5"
                         required
+                        className={formErrors.message ? "error" : ""}
+                        aria-describedby={formErrors.message ? "message-error" : undefined}
                       ></textarea>
+                      {formErrors.message && <div className="error-message" id="message-error">{formErrors.message}</div>}
                     </div>
                     
-                    <button type="submit" className="submit-button">
-                      Send Message
+                    <button 
+                      type="submit" 
+                      className={`contact-submit-button ${isSubmitting ? 'submitting' : ''}`}
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <span className="spinner"></span>
+                          Sending...
+                        </>
+                      ) : (
+                        'Send Message'
+                      )}
                     </button>
                   </form>
                 )}
@@ -157,8 +224,6 @@ const ContactPage = () => {
             </div>
           </div>
         </section>
-        
-        
       </main>
       
       <Footer />

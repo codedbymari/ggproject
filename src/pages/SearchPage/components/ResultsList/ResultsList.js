@@ -3,10 +3,7 @@ import React from 'react';
 import ResultCard from '../ResultCard/ResultCard';
 import './ResultsList.css';
 
-/**
- * ResultsList Component
- * 
- * Displays a grid of ResultCard components based on search results
+/* ResultsList Component
  */
 const ResultsList = ({ results, onToggleFavorite }) => {
   if (!results || results.length === 0) {

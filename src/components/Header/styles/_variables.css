@@ -1,0 +1,65 @@
+/* Header component variables */
+:root {
+    --header-height: 80px;
+    --header-bg: #ffffff;
+    --header-border: rgba(0, 0, 0, 0.1);
+    --text-primary: #333333;
+    --text-hover: #000000;
+    --accent-color: #000000;
+    --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.05);
+    --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.3s ease;
+    --spacing-xs: 8px;
+    --spacing-sm: 15px;
+    --spacing-md: 20px;
+    --spacing-lg: 40px;
+    --spacing-xl: 60px;
+    --nav-item-spacing: 45px;
+    --edge-spacing: 40px;
+    --container-max-width: 1440px;
+    --container-max-width-xl: 1600px;
+    --container-max-width-xxl: 1920px;
+    --container-max-width-xxxl: 2400px;
+    --container-padding-mobile: 15px;
+    --container-padding-tablet: 20px;
+    --container-padding-desktop: var(--edge-spacing);
+    --container-padding-large: 60px;
+    --container-padding-xlarge: 80px;
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+    --border-radius-full: 50%;
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-md: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 20px;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+    --z-index-header: 1000;
+    --z-index-overlay: 999;
+    --z-index-dropdown: 1001;
+    --z-index-menu: 1002;
+    --z-index-modal: 1003;
+    --button-bg: #000000;
+    --button-text: #ffffff;
+    --button-hover: #333333;
+  }
+  
+  /* Dark Mode Variables */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --header-bg: #121212;
+      --header-border: rgba(255, 255, 255, 0.1);
+      --text-primary: #e0e0e0;
+      --text-hover: #ffffff;
+      --accent-color: #ffffff;
+      --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.2);
+      --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.3);
+      --button-bg: #ffffff;
+      --button-text: #121212;
+      --button-hover: #e0e0e0;
+    }
+  }

@@ -1,0 +1,185 @@
+/* Mobile Navigation */
+.nav-menu {
+    display: none; 
+  }
+  
+  .mobile-footer {
+    display: none; 
+  }
+  
+  .mobile-header {
+    display: none; 
+  }
+  
+  /* Mobile Navigation Styles (applied via media queries) */
+  @media (max-width: 991px) {
+    .nav-menu {
+      display: flex;
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 80%;
+      max-width: 300px;
+      height: 100vh;
+      background-color: var(--header-bg);
+      margin-left: 0;
+      padding: var(--spacing-md);
+      transition: left var(--transition-medium);
+      box-shadow: var(--shadow-medium);
+      z-index: var(--z-index-menu);
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      overflow-y: auto;
+    }
+    
+    .nav-menu.active {
+      left: 0;
+    }
+    
+    .nav-overlay {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: all var(--transition-medium);
+      z-index: var(--z-index-overlay);
+    }
+    
+    .nav-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* Mobile header layout */
+    .mobile-header {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      width: 100%;
+      padding-bottom: 15px;
+      margin-bottom: var(--spacing-md);
+      border-bottom: 1px solid var(--header-border);
+    }
+    
+    /* Close button */
+    .mobile-close-btn {
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      padding: 8px 12px;
+      color: var(--text-primary);
+      line-height: 1;
+      border-radius: var(--border-radius-sm);
+      transition: background-color var(--transition-fast);
+    }
+    
+    .mobile-close-btn:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+    
+    .nav-menu ul.nav-links {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .nav-menu .nav-links li {
+      margin: 0;
+      padding: 0;
+    }
+    
+    .nav-menu .nav-links li:not(:first-child) {
+      margin-left: 0;
+      margin-top: var(--spacing-md);
+    }
+    
+    .nav-menu .nav-links a {
+      text-decoration: none;
+      color: var(--text-primary);
+      font-size: var(--font-size-md);
+      font-weight: var(--font-weight-normal);
+      position: relative;
+      display: block;
+      padding: 10px 0;
+    }
+    
+    .mobile-footer {
+      display: block;
+      margin-top: auto;
+      width: 100%;
+      padding-top: var(--spacing-md);
+      border-top: 1px solid var(--header-border);
+      margin-top: 30px;
+    }
+    
+    .mobile-footer .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+    
+    .mobile-footer .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--border-radius-full);
+      text-decoration: none;
+      transition: background-color var(--transition-fast);
+    }
+    
+   
+    
+    .mobile-footer .social-icons img {
+      width: 18px;
+      height: 18px;
+    }
+    
+    .mobile-footer p {
+      color: #999;
+      font-size: var(--font-size-xs);
+      margin: 0;
+    }
+    
+    /* Hamburger animation */
+    .hamburger {
+      display: flex;
+      position: relative;
+      margin-right: auto;
+      margin-left: 0;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
+  
+  /* Dark mode adjustments for mobile */
+  @media (prefers-color-scheme: dark) {
+    .mobile-footer .social-icons a {
+      background-color: #2a2a2a;
+    }
+    
+    .mobile-footer .social-icons a:hover {
+      background-color: #3a3a3a;
+    }
+  }

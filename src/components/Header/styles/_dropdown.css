@@ -1,0 +1,206 @@
+/* Services Dropdown - Redesigned */
+.has-dropdown {
+    position: relative;
+  }
+  
+
+
+  .has-dropdown a {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  
+  .has-dropdown a:hover {
+    color: #ff6b81; 
+  }
+  
+  .dropdown-arrow {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    margin-left: 8px;
+    margin-top: -4px;
+    transition: transform 0.25s ease, margin 0.25s ease;
+  }
+  
+  .has-dropdown a[aria-expanded="true"] .dropdown-arrow {
+    transform: rotate(-135deg);
+    margin-top: 2px;
+  }
+  
+  /* Services dropdown container */
+  .services-dropdown {
+    position: absolute;
+    top: calc(100% + 15px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 10px 0;
+    min-width: 220px;
+    z-index: 100;
+    animation: dropdownFade 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  @keyframes dropdownFade {
+    from {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+  
+  /* Triangle indicator */
+  .services-dropdown::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 14px;
+    height: 14px;
+    background: white;
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Services list style */
+  .services-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .service-item-deskt {
+    width: 100%;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  
+  .services-list li
+    {  
+        margin-left: 0 !important; 
+    }
+
+  .service-item-deskt:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    width: 70%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.04);
+  }
+  
+  .service-item-deskt:hover {
+    background-color: rgba(255, 107, 129, 0.05);
+  }
+  
+  .service-item-deskt:active {
+    background-color: rgba(255, 107, 129, 0.1);
+  }
+  
+  .services-list .service-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    display: inline-block;
+    text-align: center;
+    transition: color 0.2s ease;
+    width: 100%;
+  }
+  
+  .service-item-deskt:hover .service-title {
+    color: #ff6b81;
+  }
+  
+  /* Mobile dropdown styling */
+  .mobile-dropdown-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .mobile-dropdown-header:hover {
+    color: #ff6b81;
+  }
+  
+  .mobile-dropdown-arrow {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    margin-left: 8px;
+    transition: transform 0.25s ease;
+  }
+  
+  /* Rotate arrow when dropdown is open */
+  .mobile-dropdown-header.active .mobile-dropdown-arrow {
+    transform: rotate(-135deg);
+  }
+  
+  .mobile-dropdown-header.active {
+    color: #ff6b81;
+  }
+  
+  .mobile-services-list {
+    list-style: none;
+    padding: 0 0 0 15px;
+    margin: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease-in-out, margin 0.35s ease;
+    border-left: 2px solid transparent;
+  }
+  
+  .mobile-services-list.active {
+    max-height: 500px;
+    margin-bottom: 15px;
+    border-left: 2px solid rgba(255, 107, 129, 0.3);
+  }
+  
+  .mobile-service-item {
+    padding: 12px 0;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: block;
+    text-align: left;
+  }
+  
+  .mobile-service-item span {
+    font-size: 14px;
+    font-weight: 400;
+  }
+  
+  .mobile-service-item:hover {
+    color: #ff6b81;
+    transform: translateX(2px);
+  }

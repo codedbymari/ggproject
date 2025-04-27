@@ -1,43 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <!--  Meta Tags -->
+  <title>GlamorGram | Book Local Beauty & Wellness Services in Nigeria</title>
+  <meta name="description" content="Discover and book the best local beauty and wellness services in Nigeria. Hair, makeup, nails, aesthetic and spa services at your fingertips with GlamorGram.">
+  
+  <!-- Favicon and App Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff3366">
+  <meta name="msapplication-TileColor" content="#ff3366">
+  <meta name="theme-color" content="#ffffff">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://glamorgram.com/">
+  <meta property="og:title" content="GlamorGram - Nigeria's Beauty and Wellness Booking Platform">
+  <meta property="og:description" content="Find and book top beauty and wellness professionals across Nigeria. Seamless appointments for hair, makeup, nails and more.">
+  <meta property="og:image" content="https://glamorgram.com/og-image.jpg">
+  <meta property="og:locale" content="en_NG">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GlamorGram Nigeria">
+  <meta name="twitter:description" content="Book beauty and wellness appointments with Nigeria's top professionals. Fast, reliable, and convenient.">
+  <meta name="twitter:image" content="https://glamorgram.com/twitter-card.jpg">
+  
+  
+  <!-- Preload Critical Assets -->
+  <link rel="preload" href="/static/js/main.chunk.js" as="script">
+  <link rel="preload" href="/static/css/main.chunk.css" as="style">
+  <link rel="preload" href="/hero-image.webp" as="image" type="image/webp">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "GlamorGram",
+      "url": "https://glamorgram.com",
+      "applicationCategory": "BookingApplication",
+      "operatingSystem": "Web, iOS, Android",
+      "description": "Book beauty and wellness services in Nigeria",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "NGN"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Nigeria"
+      },
+      "audience": {
+        "@type": "PeopleAudience",
+        "geographicArea": [
+          {
+            "@type": "AdministrativeArea",
+            "name": "Abuja",
+            "containedIn": {
+              "@type": "Country",
+              "name": "Nigeria"
+            }
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Lagos",
+            "containedIn": {
+              "@type": "Country",
+              "name": "Nigeria"
+            }
+          }
+        ]
+      }
+    }
+  </script>
+</head>
+<body>
+  <noscript>
+    <h1>Welcome to GlamorGram </h1>
+    <p>To experience Nigeria's best beauty and wellness booking platform, please enable JavaScript in your browser settings.</p>
+    <p>GlamorGram helps you find beauty and wellness services across Nigeria for hair styling, makeup, nail care, and more.</p>
+    <a href="mailto:info@glamorgram.com">Email us: info@glamorgram.com</a>
+  </noscript>
+  
+  <div id="root">
+    <div class="loading-screen">
+      <p class="loading-text">Loading your beauty experience...</p>
+    </div>
+  </div>
+  
+  <!-- App Scripts -->
+  <script>
+    // Performance monitoring
+    window.addEventListener('load', function() {
+      if ('performance' in window && 'timing' in window.performance) {
+        setTimeout(function() {
+          const timing = window.performance.timing;
+          const loadTime = timing.loadEventEnd - timing.navigationStart;
+          console.log('Page load time:', loadTime + 'ms');
+          
+          // Send to analytics when implemented
+          if (window.gtag) {
+            window.gtag('event', 'timing_complete', {
+              'name': 'load',
+              'value': loadTime,
+              'event_category': 'Page Load'
+            });
+          }
+        }, 0);
+      }
+    });
+  </script>
+</body>
 </html>

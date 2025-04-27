@@ -5,11 +5,8 @@ import FilterPanel from '../FilterPanel/FilterPanel';
 import DatePicker from '../DatePicker/DatePicker';
 import './SearchPanel.css';
 
-/**
- * SearchPanel Component
- * 
- * Provides search functionality with filters and date selection
- */
+
+
 const SearchPanel = ({
   searchTerm,
   setSearchTerm,
@@ -62,7 +59,7 @@ const SearchPanel = ({
         </form>
         
         <div className="search-filters">
-          {/* Date selection button */}
+          {/* Date selection  */}
           <div style={{ position: 'relative' }}>
             <button 
               className="filter-btn date-btn" 
@@ -77,7 +74,7 @@ const SearchPanel = ({
               <FaChevronDown className={`dropdown-icon ${showDatePicker ? 'open' : ''}`} />
             </button>
              
-               {/* Date picker directly under its button */}
+               {/* Date picker*/}
                {showDatePicker && (
               <DatePicker 
                 selectedDate={selectedDate}
@@ -88,7 +85,7 @@ const SearchPanel = ({
             )}
           </div>
           
-            {/* Filter and sort button */}
+            {/* Filter and sorting */}
             <div style={{ position: 'relative' }}>
             <button 
               className="filter-btn filter-sort-btn" 
@@ -103,7 +100,6 @@ const SearchPanel = ({
               <FaChevronDown className={`dropdown-icon ${showFilters ? 'open' : ''}`} />
             </button>
         
-     {/* Filter panel directly under its button */}
      {showFilters && (
               <FilterPanel 
                 filterOptions={filterOptions}

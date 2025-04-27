@@ -16,12 +16,11 @@ const FaqPage = () => {
     }
   }, [location.pathname]);
 
-  // Toggle question expansion - only one open at a time
   const toggleQuestion = (id) => {
     setExpandedQuestion(expandedQuestion === id ? null : id);
   };
 
-  // Customer FAQs with content matching the reference image
+  // Customer FAQs 
   const customerFAQs = [
     {
       id: 'c1',
@@ -50,7 +49,7 @@ const FaqPage = () => {
     }
   ];
 
-  // Freelancer FAQs with content matching the reference image
+  // Freelancer FAQs 
   const freelancerFAQs = [
     {
       id: 'f1',
@@ -94,7 +93,7 @@ const FaqPage = () => {
                 className={`tab-faq-button ${activeTab === 'customers' ? 'active' : ''}`}
                 onClick={() => {
                   setActiveTab('customers');
-                  setExpandedQuestion(null); // Close any open question when switching tabs
+                  setExpandedQuestion(null); 
                 }}
                 aria-pressed={activeTab === 'customers'}
               >
@@ -104,7 +103,7 @@ const FaqPage = () => {
                 className={`tab-faq-button ${activeTab === 'freelancers' ? 'active' : ''}`}
                 onClick={() => {
                   setActiveTab('freelancers');
-                  setExpandedQuestion(null); // Close any open question when switching tabs
+                  setExpandedQuestion(null); 
                 }}
                 aria-pressed={activeTab === 'freelancers'}
               >

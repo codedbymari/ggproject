@@ -1,6 +1,6 @@
 .trends {
   padding: clamp(40px, 8vw, 80px) 0;
-  text-align: center; /* Ensure the entire section has center alignment */
+  text-align: center; 
   background-color: #fff5f5;
   margin-top: clamp(40px, 8vw, 80px);
 }
@@ -11,7 +11,7 @@
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
-  text-align: center; /* Ensure container content is centered */
+  text-align: center; 
 }
 
 .section-title {
@@ -20,9 +20,9 @@
   color: #333;
   margin-bottom: clamp(12px, 2vw, 16px);
   line-height: 1.2;
-  text-align: center !important; /* Added !important to ensure it overrides any conflicting styles */
-  width: 100%; /* Ensure the title takes full width */
-  display: block; /* Make sure it's a block element */
+  text-align: center !important; 
+  width: 100%; 
+  display: block; 
   margin-left: auto;
   margin-right: auto;
 }
@@ -36,14 +36,14 @@
   margin-right: auto;
   font-size: clamp(14px, 3vw, 16px);
   line-height: 1.5;
-  text-align: center; /* Ensure center alignment */
+  text-align: center; 
 }
 
 .trends-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 370px)); /* Adjusted for 370px width */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 370px)); 
   gap: clamp(20px, 4vw, 30px);
-  justify-content: center; /* Center the grid items */
+  justify-content: center; 
   width: 100%;
   margin: 0 auto;
 }
@@ -55,9 +55,9 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
   cursor: pointer;
   width: 100%;
-  max-width: 370px; /* Set max width */
-  height: 370px; /* Fixed height */
-  margin: 0 auto; /* Center cards */
+  max-width: 370px; 
+  height: 370px;
+  margin: 0 auto;
 }
 
 .trend-card:hover {
@@ -101,7 +101,7 @@
 /* Responsive adjustments */
 @media (max-width: 480px) {
   .trend-card {
-    height: 300px; /* Smaller height on mobile */
+    height: 300px; 
   }
   
   .trend-title-overlay {
@@ -113,21 +113,21 @@
   }
 }
 
-/* For larger screens, maintain grid layout */
+/* For larger screens */
 @media (min-width: 768px) {
   .trends-grid {
-    grid-template-columns: repeat(2, 370px); /* Exactly 370px width */
+    grid-template-columns: repeat(2, 370px); 
   }
 }
 
 @media (min-width: 1200px) {
   .trends-grid {
-    grid-template-columns: repeat(3, 370px); /* Exactly 370px width */
+    grid-template-columns: repeat(3, 370px); 
   }
 }
 
 @media (min-width: 1600px) {
   .trends-grid {
-    grid-template-columns: repeat(4, 370px); /* Exactly 370px width */
+    grid-template-columns: repeat(4, 370px); 
   }
 }

@@ -73,14 +73,11 @@
     font-size: 16px;
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 2px 4px rgba(255, 105, 180, 0.3);
     min-width: 120px;
   }
   
   .searchpage-button:hover {
     background-color: #333;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(255, 105, 180, 0.4);
   }
   
   .searchpage-button:active {

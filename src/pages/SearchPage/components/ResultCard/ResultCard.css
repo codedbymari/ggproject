@@ -13,7 +13,6 @@
   
   .result-card:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    transform: translateY(-4px);
   }
   
   /* Card Image */
@@ -32,9 +31,7 @@
     transition: transform 0.5s ease;
   }
   
-  .result-card:hover .card-image img {
-    transform: scale(1.05);
-  }
+
   
   .card-actions {
     position: absolute;
@@ -127,7 +124,7 @@
   }
   
   .stars .filled {
-    color: #ffc107;
+    color: #f8adad;
     font-size: 14px;
   }
   
@@ -149,7 +146,7 @@
     flex: 1;
   }
   
-  .service-item {
+  .service-item{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -199,10 +196,10 @@
     margin-top: auto;
   }
   
-  .book-btn {
+  .view-more-btn {
     flex: 1;
-    background-color: black;
-    color: white;
+    background-color: #FFF5F5;
+    color: #333;
     border: none;
     border-radius: 4px;
     padding: 10px;
@@ -212,8 +209,9 @@
     transition: all 0.2s ease;
   }
   
-  .book-btn:hover {
+  .view-more-btn:hover {
     background-color: #333;
+    color: white;
     transform: translateY(-2px);
   }
   

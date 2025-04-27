@@ -7,12 +7,14 @@ import ContactUsPage from './pages/ContactUs/ContactUsPage';
 import FreelancerGuide from'./pages/FreelancerGuide/FreelancerGuidePage';
 import FaqPage from './pages/Faq/FaqPage';
 import SearchPage from './pages/SearchPage/SearchPage';
-import ServicePage from './pages/Service/ServicePage';
+import ScrollToTop from './components/utils/ScrollToTop';
+
 import './App.css';
 
 function App() {
   return (
-    <Router>
+    <Router> 
+      <ScrollToTop />
       <div className="App">
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -22,7 +24,6 @@ function App() {
           <Route path="/contact" element={<ContactUsPage />} />
           <Route path="/freelancer-guide" element={<FreelancerGuide />} />
           <Route path="/search/:category" element={<SearchPage />} />
-          <Route path="/services/:id" element={<ServicePage />} />
         </Routes>
       </div>
     </Router>

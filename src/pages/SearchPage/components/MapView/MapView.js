@@ -1,25 +1,20 @@
-// src/pages/SearchPage/components/MapView/MapView.js
 import React, { useState, useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import './MapView.css';
 import 'leaflet/dist/leaflet.css';
 
-/**
- * PriceMarker Component
- * 
- * Creates a custom marker showing the price of the service
- */
+
 const PriceMarker = ({ map, position, price, result }) => {
   useEffect(() => {
     if (!map) return;
 
-    // Create a custom HTML element for the price marker
+    //  a  HTML  for the price marker
     const markerHtml = document.createElement('div');
     markerHtml.className = 'price-marker';
     markerHtml.innerHTML = `€${typeof price === 'number' ? Math.round(price) : price}`;
 
-    // Create a custom icon with the price marker HTML
+    //  a custom icon with the price marker 
     const customIcon = L.divIcon({
       className: 'custom-price-marker',
       html: markerHtml,
@@ -28,10 +23,10 @@ const PriceMarker = ({ map, position, price, result }) => {
       popupAnchor: [0, -15]
     });
 
-    // Create the marker with the custom icon
+    //  the marker with the custom icon
     const marker = L.marker(position, { icon: customIcon });
     
-    // Create popup content
+    //  popup content
     const popupContent = `
       <div class="map-popup">
         <h3>${result.name}</h3>
@@ -49,13 +44,12 @@ const PriceMarker = ({ map, position, price, result }) => {
       </div>
     `;
     
-    // Add popup to marker
+    //  popup to marker
     marker.bindPopup(popupContent);
     
-    // Add marker to map
+    //  marker to map
     marker.addTo(map);
     
-    // Clean up on unmount
     return () => {
       map.removeLayer(marker);
     };
@@ -65,21 +59,19 @@ const PriceMarker = ({ map, position, price, result }) => {
 };
 
 /**
- * MapController Component
- * 
- * Controls the map view and adds markers
+  Controls the map view and adds markers
  */
 const MapController = ({ results }) => {
   const map = useMap();
   
   useEffect(() => {
     if (results && results.length > 0) {
-      // Create bounds from all marker positions
+      //  bounds from all marker positions
       const bounds = L.latLngBounds(
         results.map(result => [result.location.lat, result.location.lng])
       );
       
-      // Fit the map to these bounds with some padding
+      // Fit the map to  bounds with some padding
       map.fitBounds(bounds, { padding: [50, 50] });
     }
   }, [map, results]);
@@ -107,10 +99,7 @@ const MapController = ({ results }) => {
   );
 };
 
-/**
- * MapView Component
- * 
- * Displays an interactive map with custom price markers
+/* Displays an interactive map with custom price markers
  */
 const MapView = ({ results }) => {
   const [mapCenter] = useState([52.4862, -1.8904]);

@@ -129,11 +129,11 @@ margin-top: 80px;
 }
 
 .remove-tag:hover {
-  color: #D14D72;
+  color: black;
 }
 
 .clear-all-filters {
-  background-color: #D14D72;
+  background-color: black;
   color: white;
   border: none;
   border-radius: 20px;

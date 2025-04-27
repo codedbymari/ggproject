@@ -1,6 +1,6 @@
 <!-- tree-marker.svg -->
 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="20" cy="20" r="18" fill="#FFC0CB" stroke="#FF69B4" stroke-width="2"/>
-  <path d="M20 10C22.2091 10 24 11.7909 24 14C24 16.2091 22.2091 18 20 18C17.7909 18 16 16.2091 16 14C16 11.7909 17.7909 10 20 10Z" fill="#FF69B4"/>
-  <path d="M20 18V30" stroke="#FF69B4" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="20" cy="20" r="18" fill="#FFC0CB" stroke="#f8adad" stroke-width="2"/>
+  <path d="M20 10C22.2091 10 24 11.7909 24 14C24 16.2091 22.2091 18 20 18C17.7909 18 16 16.2091 16 14C16 11.7909 17.7909 10 20 10Z" fill="#f8adad"/>
+  <path d="M20 18V30" stroke="#f8adad" stroke-width="2" stroke-linecap="round"/>
 </svg>

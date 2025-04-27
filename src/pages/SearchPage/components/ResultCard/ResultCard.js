@@ -9,13 +9,12 @@ import './ResultCard.css';
  * 
  * Displays information about a single service provider including image,
  * name, rating, services, and pricing. The entire card is clickable
- * and navigates to the service page using dynamic routing.
+ * and navigates to the service page using dynamic routing. 
  */
 const ResultCard = ({ result, onToggleFavorite }) => {
   const [imageError, setImageError] = useState(false);
   const navigate = useNavigate();
   
-  // Handle image loading errors
   const handleImageError = () => {
     console.log("Image failed to load:", result.image);
     setImageError(true);
@@ -24,12 +23,11 @@ const ResultCard = ({ result, onToggleFavorite }) => {
   // Get fallback image if the original fails to load
   const getImageSrc = () => {
     if (imageError) {
-      return '/images/placeholder.jpg'; // Fallback image
+      return '/images/placeholder.jpg'; // create a fallback placeholder
     }
     return result.image;
   };
 
-  // Format price to always show 2 decimal places when needed
   const formatPrice = (price) => {
     return typeof price === 'number' 
       ? price % 1 === 0 
@@ -40,11 +38,9 @@ const ResultCard = ({ result, onToggleFavorite }) => {
 
   // Navigate to service page when card is clicked
   const navigateToService = () => {
-    // Use dynamic routing with the service id as parameter
     navigate(`/services/${result.id}`);
   };
 
-  // Prevent event propagation for action buttons
   const handleActionClick = (e, callback) => {
     e.stopPropagation();
     callback();
@@ -124,14 +120,14 @@ const ResultCard = ({ result, onToggleFavorite }) => {
         
         <div className="card-footer">
           <button 
-            className="book-btn"
+            className="view-more-btn"
             onClick={(e) => {
               e.stopPropagation();
-              // Pass the service ID to the booking system
+              // make the view more clickable
               navigate(`/booking/${result.id}`);
             }}
           >
-            Book Now
+            View More 
           </button>
         </div>
       </div>

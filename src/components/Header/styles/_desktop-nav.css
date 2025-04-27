@@ -1,0 +1,57 @@
+/* Desktop Navigation */
+.desktop-nav {
+    display: flex;
+    align-items: center;
+    margin-left: 60px;
+    margin-right: auto;
+  }
+  
+  .desktop-nav .nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .desktop-nav .nav-links li:not(:first-child) {
+    margin-left: var(--nav-item-spacing);
+  }
+  
+  .desktop-nav .nav-links a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-normal);
+    position: relative;
+    display: block;
+    padding: var(--spacing-xs) 0;
+    transition: color var(--transition-fast);
+  }
+  
+  .desktop-nav .nav-links a:hover {
+    color: var(--text-hover);
+  }
+  
+  .desktop-nav .nav-links a::before {
+    content: '';
+    position: absolute;
+    top: -8px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 5px;
+    background-color: #000;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  
+  .desktop-nav .nav-links a:hover::before {
+    opacity: 1;
+  }
+  
+  
+  .desktop-nav .nav-links a:focus-visible {
+    outline: 2px solid rgba(0, 0, 0, 0.2);
+    outline-offset: 4px;
+    border-radius: var(--border-radius-sm);
+  }

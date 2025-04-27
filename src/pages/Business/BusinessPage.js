@@ -103,10 +103,7 @@ const BusinessPage = () => {
                   <div className="testimonial-name">- Veronica</div>
                 </div>
                 
-                <div className="emoji-bubble top-right">
-                  <span role="img" aria-label="Heart eyes emoji">😍</span>
-                </div>
-                
+            
                 <div className="testimonial-card bottom-left">
                   <div className="testimonial-header">
                     <div className="testimonial-avatar">
@@ -123,9 +120,7 @@ const BusinessPage = () => {
                   <div className="testimonial-name">- Zarah </div>
                 </div>
                 
-                <div className="emoji-bubble bottom-right">
-                  <span role="img" aria-label="Smiling emoji">😊</span>
-                </div>
+              
               </div>
             </div>
 
@@ -138,7 +133,6 @@ const BusinessPage = () => {
                 <button className="btn-primary">Work Freely</button>
               </div>
               <div className="benefit-image calendar-section">
-                {/* Removed laptop mockup, kept only calendar */}
                 <div className="calendar-date">
                   <div className="date-header">{getCurrentMonthName()}</div>
                   <div className="date-grid">

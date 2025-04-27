@@ -1,5 +1,5 @@
 // src/pages/SearchPage/utils/dummyData.js
-// Import images directly
+
 import hairByJImage from '../../../images/hairbyjj.png';
 import example2Image from '../../../images/example2.png';
 import nailsImage from '../../../images/nails.png';

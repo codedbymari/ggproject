@@ -5,7 +5,6 @@
 
 .business-content {
   max-width: 100%;
-  overflow-x: hidden;
 }
 
 .business-hero {
@@ -70,10 +69,6 @@
   transition: transform 0.3s ease;
 }
 
-.benefit-image:hover img {
-  transform: scale(1.03);
-}
-
 .showcase-image {
   max-height: 400px;
   display: flex;
@@ -101,27 +96,36 @@
 }
 
 .btn-primary {
-  background-color: transparent;
-  color: #000;
-  border: 2px solid #000;
+  background-color: #FFF5F5;
+  color: #333;
+  border: 1px solid rgba(174, 172, 172, 0.3);
   padding: 12px 24px;
-  border-radius: 30px;
+  border-radius: 8px;
   font-weight: 600;
   font-size: 1rem;
-  cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  text-align: center;
 }
 
-.btn-primary:hover {
-  background-color: #000;
-  color: white;
+
+
+.btn-primary:active {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+
 
 .btn-large {
   padding: 16px 32px;
   font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
-
 
 .testimonials-container {
   background-color: #FFF5F5;
@@ -192,30 +196,6 @@
   color: #666;
 }
 
-.emoji-bubble {
-  position: absolute;
-  background-color: white;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.8rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  z-index: 3;
-}
-
-.emoji-bubble.top-right {
-  top: 15%;
-  right: 15%;
-}
-
-.emoji-bubble.bottom-right {
-  bottom: 15%;
-  right: 15%;
-}
-
 .calendar-section {
   display: flex;
   align-items: center;
@@ -284,12 +264,12 @@
   border: 1px solid #f0f0f0;
 }
 
-
 .date-item.active {
   background-color: #FFD6D6;
   font-weight: 600;
   border-color: #FFB6C1;
 }
+
 .date-number {
   font-size: 1.1rem;
 }
@@ -301,19 +281,20 @@
 
 .cta-business-section {
   background-color: #FFF5F5;
-  padding:  20px 0;
+  padding: 40px 20px;
   margin-top: 60px;
+  margin-bottom: 60px;
   position: relative;
-  overflow: visible; 
-  height: 350px;
+  min-height: 350px;
 }
+
 .cta-business-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 40px;
   position: relative;
-  padding: 10px 0;
+  padding: 20px 0;
 }
 
 .cta-business-text {
@@ -321,18 +302,23 @@
   text-align: left;
   max-width: 600px;
   padding-right: 20px;
+  z-index: 2;
 }
 
 .cta-business-section h2 {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 15px;
-  
-}
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.5);
 
+}
 .cta-business-section p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #333;
+
 }
 
 .cta-business-phone-container {
@@ -341,23 +327,29 @@
   flex: 1;
   display: flex;
   justify-content: flex-end;
-  background-color: transparent; 
+  background-color: transparent;
+  z-index: 1;
 }
+
 .custom-iphone-mockup {
   position: absolute;
   right: 40px;
-  top: -130px; 
+  top: -130px;
   z-index: 10;
+  transition: all 0.3s ease;
 }
-
 
 .iphone-mockup-image {
   max-width: 240px;
   height: auto;
   display: block;
   filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.25));
+  transition: transform 0.3s ease;
 }
-/* Responsivness */
+
+
+
+/* Responsiveness */
 @media (max-width: 1200px) {
   .custom-iphone-mockup {
     right: 20px;
@@ -388,44 +380,63 @@
     order: 2;
   }
   
+  .cta-business-section {
+    padding: 60px 20px 180px;
+    height: auto;
+  }
+  
   .cta-business-content {
     flex-direction: column;
     text-align: center;
+    gap: 20px;
   }
   
   .cta-business-text {
     text-align: center;
     padding-right: 0;
+    max-width: 100%;
   }
   
   .cta-business-phone-container {
     width: 100%;
-    height: 300px;
+    height: 250px;
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+    right: 0;
   }
   
   .custom-iphone-mockup {
-    position: relative;
-    top: -100px;
+    position: absolute;
+    top: auto;
     right: auto;
     left: 50%;
     transform: translateX(-50%);
+    bottom: -50px;
   }
+  
   .testimonial-card {
     max-width: 100%;
   }
+  
   .iphone-mockup-image {
-    transform: perspective(1000px) rotateY(0); /* Remove tilt on mobile */
+    transform: perspective(1000px) rotateY(0);
+    max-width: 220px;
   }
 }
-
 
 @media (max-width: 768px) {
   .business-hero {
     padding: 80px 20px;
+    margin-top: 60px;
   }
   
   .business-hero h1 {
     font-size: 2rem;
+  }
+  
+  .business-benefits {
+    padding: 60px 20px;
   }
   
   .benefit-content h2 {
@@ -437,17 +448,28 @@
   }
   
   .cta-business-section {
-    padding: 80px 20px;
+    padding: 50px 20px 200px;
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
   
   .cta-business-section h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
+    margin-bottom: 10px;
   }
   
-  .emoji-bubble {
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
+  .cta-business-section p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    background-color: rgba(255, 255, 255, 0.5);
+
+  }
+  
+  .btn-large {
+    padding: 14px 28px;
+    font-size: 1rem;
+    width: 80%;
+    max-width: 300px;
   }
   
   .testimonials-container {
@@ -455,22 +477,23 @@
     padding: 20px;
   }
   
-  .iphone-mockup-image {
-    max-width: 220px;
+  .custom-iphone-mockup {
+    bottom: -30px;
   }
   
-  .custom-iphone-mockup {
-    top: -100px;
+  .iphone-mockup-image {
+    max-width: 200px;
   }
   
   .cta-business-phone-container {
-    height: 250px;
+    height: 200px;
   }
 }
 
 @media (max-width: 480px) {
   .business-hero {
     padding: 60px 20px;
+    margin-top: 50px;
   }
   
   .business-hero h1 {
@@ -481,47 +504,102 @@
     font-size: 1rem;
   }
   
+  .business-benefits {
+    padding: 40px 20px;
+  }
+  
   .benefit-card {
     margin-bottom: 60px;
+    padding: 10px 0;
   }
   
   .benefit-content h2 {
     font-size: 1.4rem;
   }
   
+  .cta-business-section {
+    padding: 40px 20px 180px;
+  }
+  
+  .cta-business-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .cta-business-section p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+
+  }
+  
   .btn-primary {
-    padding: 10px 20px;
-    font-size: 0.9rem;
+    padding: 12px 20px;
+    font-size: 0.95rem;
   }
   
   .btn-large {
-    padding: 14px 28px;
-    font-size: 1rem;
+    width: 100%;
+    max-width: none;
+    padding: 14px 20px;
   }
   
   .testimonial-text {
     font-size: 0.9rem;
   }
   
-  .emoji-bubble.top-right {
-    top: 10%;
-    right: 10%;
-  }
-  
-  .emoji-bubble.bottom-right {
-    bottom: 10%;
-    right: 10%;
+  .custom-iphone-mockup {
+    bottom: -20px;
   }
   
   .iphone-mockup-image {
     max-width: 180px;
   }
   
-  .custom-iphone-mockup {
-    top: -80px;
+  /* Enhance benefit section buttons on mobile */
+  .benefit-content .btn-primary {
+    display: block;
+    width: 100%;
+    text-align: center;
   }
-  
-  .cta-business-phone-container {
-    height: 200px;
+  .calendar-date {
+    margin-top: 10px;
+    background-color: #FFF5F5;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+    width: 250px;
+    margin-bottom:30px;
   }
 }
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+.benefit-card {
+  transition: opacity 0.3s ease;
+}
+
+.benefit-card:hover {
+  opacity: 1;
+}
+
