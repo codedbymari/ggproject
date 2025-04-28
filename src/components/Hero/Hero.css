@@ -356,7 +356,7 @@
   
   .search-bar input {
     padding: 18px 10px 18px 0;
-    font-size: 15px;
+    font-size: 16px;
   }
   
   .search-icon-hero, 
@@ -367,8 +367,7 @@
   .search-hero-button {
     padding: 18px 30px;
   }
-  .search-bar input {
-    font-size: 15px; 
+
 }
 
 /* Desktop screens (1201px to 1440px) */
