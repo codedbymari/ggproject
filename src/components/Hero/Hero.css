@@ -148,7 +148,7 @@
   padding: 8px 0;
   border: none;
   outline: none;
-  font-size: 15px;
+  font-size: 16px;
   color: #333;
   width: 100%;
   background: transparent;
@@ -254,6 +254,9 @@
   .search-icon-hero, 
   .location-hero-icon {
     font-size: 17px;
+  }
+  .search-bar input {
+    font-size: 16px; 
   }
 }
 
@@ -364,11 +367,8 @@
   .search-hero-button {
     padding: 18px 30px;
   }
-  
-  .browse-indicator {
-    bottom: -70px;
-    font-size: 15px;
-  }
+  .search-bar input {
+    font-size: 15px; 
 }
 
 /* Desktop screens (1201px to 1440px) */
@@ -423,9 +423,7 @@
 
   }
   
-  .browse-indicator {
-    bottom: -90px;
-  }
+
 }
 
 /* Large desktop screens (1441px and above) */
