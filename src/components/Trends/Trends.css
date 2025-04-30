@@ -372,24 +372,6 @@
   }
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .trends {
-    background-color: #2a1a1a;
-  }
-  
-  .section-title {
-    color: #f0f0f0;
-  }
-  
-  .trends-subtitle {
-    color: #c0c0c0;
-  }
-  
-  .trend-image::before {
-    background-color: #333;
-  }
-}
 
 /* Print styles for better printing */
 @media print {
