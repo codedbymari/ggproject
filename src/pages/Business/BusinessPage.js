@@ -5,7 +5,7 @@ import './BusinessPage.css';
 import clientReachImage from '../../assets/business/clientshappy.png';
 import showcaseTalentImage from '../../assets/business/portfolio.png';
 import schedulingImage from '../../assets/business/Handz - 10.png';
-import ggMobileImage from '../../assets/ggmobil.png'
+import ggMobileImage from '../../assets/ggmobil.png';
 
 const BusinessPage = () => {
   // Get current month name
@@ -33,6 +33,9 @@ const BusinessPage = () => {
         <section className="business-benefits">
           <div className="container">
             <div className="benefit-card">
+              <div className="benefit-image">
+                <img src={clientReachImage} alt="Expanding client reach" loading="lazy" />
+              </div>
               <div className="benefit-content">
                 <h2>Expand Your Client Reach</h2>
                 <p>
@@ -40,14 +43,14 @@ const BusinessPage = () => {
                   local area, allowing you to grow your business and reach more people who value your
                   expertise.
                 </p>
-                <button className="btn-primary">Get Clients</button>
-              </div>
-              <div className="benefit-image">
-                <img src={clientReachImage} alt="Expanding client reach" />
+                <div className="benefit-highlight">Get Clients</div>
               </div>
             </div>
 
-            <div className="benefit-card reverse">
+            <div className="benefit-card">
+              <div className="benefit-image showcase-image">
+                <img src={showcaseTalentImage} alt="Showcase your talent" loading="lazy" />
+              </div>
               <div className="benefit-content">
                 <h2>Showcase Your Talent</h2>
                 <p>
@@ -55,28 +58,25 @@ const BusinessPage = () => {
                   experience, and portfolio, making it easier for potential clients to see your work and choose you
                   with confidence.
                 </p>
-                <button className="btn-primary">Show Your Work</button>
-              </div>
-              <div className="benefit-image showcase-image">
-                <img src={showcaseTalentImage} alt="Showcase your talent" />
+                <div className="benefit-highlight">Show Your Work</div>
               </div>
             </div>
 
             <div className="benefit-card">
+              <div className="benefit-image">
+                <img src={schedulingImage} alt="Streamline scheduling and payments" loading="lazy" />
+              </div>
               <div className="benefit-content">
                 <h2>Streamline Scheduling & Payments</h2>
                 <p>
                   Our user-friendly platform simplifies appointment management and payments, so you can focus on what you do best—providing
                   exceptional beauty services.
                 </p>
-                <button className="btn-primary">Simplify Booking</button>
-              </div>
-              <div className="benefit-image">
-                <img src={schedulingImage} alt="Streamline scheduling and payments" />
+                <div className="benefit-highlight">Simplify Booking</div>
               </div>
             </div>
 
-            <div className="benefit-card reverse">
+            <div className="benefit-card">
               <div className="benefit-content">
                 <h2>Build Credibility & Trust</h2>
                 <p>
@@ -84,7 +84,7 @@ const BusinessPage = () => {
                   you can enhance your reputation and attract even more bookings while establishing yourself as
                   a trusted professional in your community.
                 </p>
-                <button className="btn-primary">Earn Reviews</button>
+                <div className="benefit-highlight">Earn Reviews</div>
               </div>
               <div className="benefit-image testimonials-container">
                 <div className="testimonial-card">
@@ -103,7 +103,6 @@ const BusinessPage = () => {
                   <div className="testimonial-name">- Veronica</div>
                 </div>
                 
-            
                 <div className="testimonial-card bottom-left">
                   <div className="testimonial-header">
                     <div className="testimonial-avatar">
@@ -119,19 +118,10 @@ const BusinessPage = () => {
                   <p className="testimonial-text">"Best makeup artist in town! Always on time and so professional."</p>
                   <div className="testimonial-name">- Zarah </div>
                 </div>
-                
-              
               </div>
             </div>
 
             <div className="benefit-card">
-              <div className="benefit-content">
-                <h2>Manage Bookings & Flexible Hours</h2>
-                <p>
-                  Enjoy the freedom to set your own schedule, choose the services you offer, and control your business while benefiting from our platform's support. Our intuitive calendar makes it easy to track upcoming appointments and manage your availability.
-                </p>
-                <button className="btn-primary">Work Freely</button>
-              </div>
               <div className="benefit-image calendar-section">
                 <div className="calendar-date">
                   <div className="date-header">{getCurrentMonthName()}</div>
@@ -159,6 +149,13 @@ const BusinessPage = () => {
                   </div>
                 </div>
               </div>
+              <div className="benefit-content">
+                <h2>Manage Bookings & Flexible Hours</h2>
+                <p>
+                  Enjoy the freedom to set your own schedule, choose the services you offer, and control your business while benefiting from our platform's support. Our intuitive calendar makes it easy to track upcoming appointments and manage your availability.
+                </p>
+                <div className="benefit-highlight">Work Freely</div>
+              </div>
             </div>
           </div>
         </section>
@@ -169,14 +166,15 @@ const BusinessPage = () => {
               <div className="cta-business-text">
                 <h2>Join Us Now!</h2>
                 <p>Grow Your Beauty Business with GlamorGram</p>
-                <button className="btn-primary btn-large">Get Started</button>
+                <a href="#signup" className="cta-button">Get Started</a>
               </div>
               <div className="cta-business-phone-container">
                 <div className="custom-iphone-mockup">
                   <img 
                     src={ggMobileImage} 
-                    alt="GlamorGram Mobile Mockup" 
+                    alt="GlamorGram Mobile App" 
                     className="iphone-mockup-image"
+                    loading="lazy"
                   />
                 </div>
               </div>
