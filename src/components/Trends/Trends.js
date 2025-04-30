@@ -3,6 +3,7 @@ import './Trends.css';
 
 const Trends = () => {
   const [imagesLoaded, setImagesLoaded] = useState({});
+  const [touchedIndex, setTouchedIndex] = useState(null);
   
   const trends = [
     {
@@ -38,6 +39,14 @@ const Trends = () => {
     }));
   };
 
+  const handleTouchStart = (index) => {
+    setTouchedIndex(index);
+  };
+
+  const handleTouchEnd = () => {
+    setTouchedIndex(null);
+  };
+
   return (
     <section className="trends" id="trends">
       <div className="container">
@@ -47,12 +56,14 @@ const Trends = () => {
         <div className="trends-grid">
           {trends.map((trend, index) => (
             <div 
-              className="trend-card" 
+              className={`trend-card ${touchedIndex === index ? 'touched' : ''}`}
               key={index}
               tabIndex="0"
               role="button"
               aria-label={`Explore ${trend.title}: ${trend.description}`}
               onClick={() => console.log(`Clicked on ${trend.title}`)}
+              onTouchStart={() => handleTouchStart(index)}
+              onTouchEnd={handleTouchEnd}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault();

@@ -1,8 +1,13 @@
+/* Trends Section - Mobile First Approach */
 .trends {
-  padding: 40px 0;
+  padding: 40px 0 50px; 
   text-align: center;
   background-color: #fff5f5;
   margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
@@ -11,6 +16,9 @@
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .section-title {
@@ -37,7 +45,7 @@
 
 .trends-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 15px;
   width: 100%;
   max-width: 1200px;
@@ -45,24 +53,20 @@
   justify-content: center;
 }
 
-
 .trend-card {
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   cursor: pointer;
   width: 100%;
   aspect-ratio: 1/1; 
   border-radius: 8px;
-}
-
-.trend-card:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .trend-card:active {
-  transform: translateY(-2px);
+  transform: scale(0.98);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .trend-image {
@@ -71,16 +75,14 @@
   height: 100%;
   overflow: hidden;
   border-radius: 8px;
+  background-color: #f8f8f8; /* Placeholder background while loading */
 }
 
 .trend-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.trend-card:hover .trend-image img {
+  transition: opacity 0.3s ease, transform 0.5s ease;
 }
 
 .trend-title-overlay {
@@ -88,14 +90,14 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 15px 10px;
+  padding: 12px 8px;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0) 100%);
-  transition: all 0.3s ease;
+  transition: background 0.3s ease;
 }
 
 .trend-title {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
   color: white;
   margin: 0;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
@@ -106,20 +108,91 @@
   outline-offset: 2px;
 }
 
-/* Extra small devices (phones, 320px and up) */
+/* Loading animation for images */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.trend-image img {
+  animation: fadeIn 0.5s ease-in;
+}
+
+/* Loading placeholder */
+.trend-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f0f0f0;
+  z-index: -1;
+}
+
+/* Extra small devices (small phones, 320px and up) */
 @media (min-width: 320px) {
+  .trends-grid {
+    gap: 10px;
+  }
+  
   .trend-title {
-    font-size: 13px;
+    font-size: 12px;
   }
   
   .trend-title-overlay {
-    padding: 12px 8px;
+    padding: 10px 8px;
+  }
+  
+  .section-title {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  
+  .trends-subtitle {
+    font-size: 13px;
+    margin-bottom: 25px;
   }
 }
 
 /* Small devices (larger phones, 375px and up) */
 @media (min-width: 375px) {
+  .trends-grid {
+    gap: 12px;
+  }
+  
   .trend-title {
+    font-size: 13px;
+  }
+  
+  .trend-title-overlay {
+    padding: 12px 10px;
+  }
+  
+  .section-title {
+    font-size: 23px;
+  }
+  
+  .trends-subtitle {
+    font-size: 13.5px;
+  }
+}
+
+/* Medium-small devices (larger phones, 425px and up) */
+@media (min-width: 425px) {
+  .trends-grid {
+    gap: 15px;
+  }
+  
+  .trend-title {
+    font-size: 14px;
+  }
+  
+  .section-title {
+    font-size: 24px;
+  }
+  
+  .trends-subtitle {
     font-size: 14px;
   }
 }
@@ -127,7 +200,7 @@
 /* Medium devices (tablets, 576px and up) */
 @media (min-width: 576px) {
   .trends {
-    padding: 50px 0;
+    padding: 50px 0 55px; 
     margin-top: 50px;
   }
   
@@ -143,8 +216,7 @@
   
   .trends-grid {
     gap: 20px;
-    grid-template-columns: repeat(2, minmax(250px, 1fr));
-
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   
   .trend-title {
@@ -154,12 +226,16 @@
   .trend-title-overlay {
     padding: 15px 12px;
   }
+  
+  .trend-card {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  }
 }
 
 /* Medium-large devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .trends {
-    padding: 60px 0;
+    padding: 60px 0 65px;
     margin-top: 60px;
   }
   
@@ -190,7 +266,7 @@
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .trends {
-    padding: 70px 0;
+    padding: 70px 0 75px;
     margin-top: 70px;
   }
   
@@ -202,12 +278,16 @@
     grid-template-columns: repeat(3, minmax(250px, 1fr));
     gap: 25px;
   }
+  
+  .trend-card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   .trends {
-    padding: 80px 0;
+    padding: 80px 0 85px;
     margin-top: 80px;
   }
   
@@ -225,16 +305,105 @@
   }
 }
 
-/* Loading animation for images */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* XXL devices (extra large desktops, 1400px and up) */
+@media (min-width: 1400px) {
+  .trends {
+    padding: 90px 0 95px;
+  }
+  
+  .section-title {
+    font-size: 34px;
+  }
+  
+  .trends-grid {
+    gap: 35px;
+  }
+  
+  .trend-title {
+    font-size: 17px;
+  }
 }
 
-.trend-image img {
-  animation: fadeIn 0.5s ease-in;
+/* Apply hover effects only on devices that support hover */
+@media (hover: hover) {
+  .trend-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+  }
+  
+  .trend-card:hover .trend-title-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 70%, rgba(0, 0, 0, 0) 100%);
+  }
+  
+  .trend-card:hover .trend-image img {
+    transform: scale(1.03);
+  }
 }
 
-.trend-card:hover .trend-title-overlay {
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 70%, rgba(0, 0, 0, 0) 100%);
+/* High contrast mode and accessibility improvements */
+@media (prefers-contrast: more) {
+  .trend-title {
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+  }
+  
+  .trend-title-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 70%, rgba(0, 0, 0, 0.3) 100%);
+  }
+  
+  .trend-card:focus-visible {
+    outline: 4px solid #ff3333;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .trend-card,
+  .trend-image img,
+  .trend-title-overlay {
+    transition: none;
+  }
+  
+  .trend-image img {
+    animation: none;
+  }
+  
+  .trend-card:hover .trend-image img {
+    transform: none;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .trends {
+    background-color: #2a1a1a;
+  }
+  
+  .section-title {
+    color: #f0f0f0;
+  }
+  
+  .trends-subtitle {
+    color: #c0c0c0;
+  }
+  
+  .trend-image::before {
+    background-color: #333;
+  }
+}
+
+/* Print styles for better printing */
+@media print {
+  .trends {
+    background-color: transparent;
+    padding: 20px 0;
+  }
+  
+  .trend-card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  
+  .trend-title-overlay {
+    background: rgba(0, 0, 0, 0.7);
+  }
 }
