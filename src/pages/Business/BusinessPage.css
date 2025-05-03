@@ -1,4 +1,4 @@
-/* Base styles  */
+/* Base   */
 .business-page {
   font-family: 'Inter', sans-serif;
   color: #333;
@@ -514,7 +514,7 @@
   }
 }
 
-/* Print styles */
+/* Print */
 @media print {
   .business-page {
     color: black;
