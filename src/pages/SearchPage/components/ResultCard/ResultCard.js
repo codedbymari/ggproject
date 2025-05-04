@@ -31,8 +31,8 @@ const ResultCard = ({ result, onToggleFavorite }) => {
   const formatPrice = (price) => {
     return typeof price === 'number' 
       ? price % 1 === 0 
-        ? `€${price}` 
-        : `€${price.toFixed(2)}`
+        ? `£${price}` 
+        : `£${price.toFixed(2)}`
       : 'Price unavailable';
   };
 
