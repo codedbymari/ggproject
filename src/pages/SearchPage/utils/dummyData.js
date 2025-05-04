@@ -13,7 +13,7 @@ export const dummyData = {
     {
       id: 1,
       name: "Hair By J",
-      address: "22 Barking Road, Birmingham",
+      address: "22 Barking Road, London",
       rating: 5.0,
       reviews: 7,
       image: hairByJImage,
@@ -39,7 +39,7 @@ export const dummyData = {
     {
       id: 2,
       name: "Example 2",
-      address: "18 Oxford St, Birmingham",
+      address: "18 Oxford St, London",
       rating: 4.0,
       reviews: 10,
       image: example2Image,
@@ -65,7 +65,7 @@ export const dummyData = {
     {
       id: 3,
       name: "Curl Masters",
-      address: "45 New Street, Birmingham",
+      address: "45 New Street, London",
       rating: 4.8,
       reviews: 24,
       image: hairImage,
@@ -91,7 +91,7 @@ export const dummyData = {
     {
       id: 4,
       name: "Style & Grace",
-      address: "78 Corporation St, Birmingham",
+      address: "78 Corporation St, London",
       rating: 4.5,
       reviews: 18,
       image: amImage,
@@ -119,7 +119,7 @@ export const dummyData = {
     {
       id: 5,
       name: "Nail Paradise",
-      address: "12 High Street, Birmingham",
+      address: "12 High Street, London",
       rating: 4.7,
       reviews: 32,
       image: nailsImage,
@@ -145,7 +145,7 @@ export const dummyData = {
     {
       id: 7,
       name: "Luxury Nails & Spa",
-      address: "56 Colmore Row, Birmingham",
+      address: "56 Colmore Row, London",
       rating: 4.6,
       reviews: 28,
       image: nailsImage,
@@ -173,7 +173,7 @@ export const dummyData = {
     {
       id: 6,
       name: "Glam Studio",
-      address: "33 Broad Street, Birmingham",
+      address: "33 Broad Street, London",
       rating: 4.9,
       reviews: 41,
       image: makeupImage,
@@ -199,7 +199,7 @@ export const dummyData = {
     {
       id: 8,
       name: "Beauty Defined",
-      address: "92 New Street, Birmingham",
+      address: "92 New Street, London",
       rating: 4.4,
       reviews: 19,
       image: makeup1Image,
@@ -227,7 +227,7 @@ export const dummyData = {
     {
       id: 9,
       name: "Skin Glow Clinic",
-      address: "27 Temple Row, Birmingham",
+      address: "27 Temple Row, London",
       rating: 4.8,
       reviews: 36,
       image: makeupImage, // Using makeup image as placeholder for skincare
@@ -255,7 +255,7 @@ export const dummyData = {
     {
       id: 10,
       name: "Lash Lounge",
-      address: "64 Bull Street, Birmingham",
+      address: "64 Bull Street, London",
       rating: 4.7,
       reviews: 22,
       image: makeup1Image, // Using makeup1 image as placeholder for eyelashes

@@ -1,6 +1,6 @@
 // src/pages/SearchPage/SearchPage.js
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { FaList, FaMap, FaChevronRight } from 'react-icons/fa';
+import { FaList, FaMap, FaChevronRight, FaArrowLeft } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
@@ -17,10 +17,10 @@ const SearchPage = () => {
   // Get category from URL 
   const { category: urlCategory } = useParams();
   
-  // State for search  and results
+  // State for search and results
   const [category, setCategory] = useState(urlCategory || 'HAIR');
   const [searchTerm, setSearchTerm] = useState('');
-  const [locationTerm, setLocationTerm] = useState('Birmingham');
+  const [locationTerm, setLocationTerm] = useState('London');
   const [searchResults, setSearchResults] = useState([]);
   
   // UI 
@@ -31,6 +31,7 @@ const SearchPage = () => {
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [activeSort, setActiveSort] = useState('recommended');
   const [resultsCount, setResultsCount] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   
   // Filter options 
   const [filterOptions, setFilterOptions] = useState({
@@ -45,7 +46,30 @@ const SearchPage = () => {
   const datePanelRef = useRef(null);
   const resultsContainerRef = useRef(null);
 
-  // Update category when URL  changes
+  // Set initial view mode based on screen size and detect mobile
+  useEffect(() => {
+    const handleResize = () => {
+      const mobileBreakpoint = window.innerWidth < 768;
+      setIsMobile(mobileBreakpoint);
+      
+      if (mobileBreakpoint) {
+        // Default to list view on mobile
+        setViewMode('list');
+      } else {
+        // Use split view on larger screens
+        setViewMode('split');
+      }
+    };
+    
+    // Set initial view mode
+    handleResize();
+    
+    // Update on resize
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Update category when URL changes
   useEffect(() => {
     if (urlCategory && urlCategory !== category) {
       setCategory(urlCategory);
@@ -208,7 +232,7 @@ const SearchPage = () => {
   }, [category, filterOptions, activeSort]);
 
   /**
-Reset all filters and search terms
+   * Reset all filters and search terms
    */
   const resetAllFilters = useCallback(() => {
     setSearchTerm('');
@@ -231,14 +255,14 @@ Reset all filters and search terms
   }, [category]);
 
   /**
-Toggle between view modes (split, list, map)
+   * Toggle between view modes (split, list, map)
    */
   const handleViewModeToggle = useCallback((mode) => {
     setViewMode(mode);
   }, []);
 
   /**
-Check if any filters are active
+   * Check if any filters are active
    */
   const hasActiveFilters = 
     filterOptions.rating > 0 || 
@@ -248,96 +272,103 @@ Check if any filters are active
     activeSort !== 'recommended' || 
     selectedDate !== 'Any Date';
 
-  return (
-    <div className="search-page">
-      <Header />
-      
-      <SearchPanel 
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        locationTerm={locationTerm}
-        setLocationTerm={setLocationTerm}
-        selectedDate={selectedDate}
-        setSelectedDate={setSelectedDate}
-        showFilters={showFilters}
-        setShowFilters={setShowFilters}
-        showDatePicker={showDatePicker}
-        setShowDatePicker={setShowDatePicker}
-        filterOptions={filterOptions}
-        setFilterOptions={setFilterOptions}
-        activeSort={activeSort}
-        setActiveSort={setActiveSort}
-        filterPanelRef={filterPanelRef}
-        datePanelRef={datePanelRef}
-        handleSearch={handleSearch}
-        applyFilters={applyFilters}
-      />
+  // Determine if we should hide the header and search panel (mobile map view)
+  const shouldHideHeaderAndSearch = isMobile && viewMode === 'map';
 
-      <main className="content-container">
-        <div className="results-header">
-          <div className="results-header-content">
-            <div className="results-title">
-              <h1>{locationTerm}: {searchResults.length > 0 ? `${searchResults.length} of ${resultsCount}` : '0'} {category.toLowerCase()}</h1>
-              
-              <ViewToggle 
-                viewMode={viewMode} 
-                onToggleView={handleViewModeToggle} 
-              />
-            </div>
-            
-            {/* Active filters display */}
-            {hasActiveFilters && (
-              <div className="active-filters">
-                <div className="filter-tags">
-                  {filterOptions.rating > 0 && (
-                    <div className="filter-tag">
-                      {filterOptions.rating}+ Stars
-                      <button className="remove-tag" onClick={() => setFilterOptions({...filterOptions, rating: 0})}>×</button>
-                    </div>
-                  )}
-                  
-                  {(filterOptions.priceRange[0] > 0 || filterOptions.priceRange[1] < 500) && (
-                    <div className="filter-tag">
-                      €{filterOptions.priceRange[0]} - €{filterOptions.priceRange[1]}
-                      <button className="remove-tag" onClick={() => setFilterOptions({...filterOptions, priceRange: [0, 500]})}>×</button>
-                    </div>
-                  )}
-                  
-                  {activeSort !== 'recommended' && (
-                    <div className="filter-tag">
-                      Sort: {activeSort}
-                      <button className="remove-tag" onClick={() => setActiveSort('recommended')}>×</button>
-                    </div>
-                  )}
-                  
-                  {selectedDate !== 'Any Date' && (
-                    <div className="filter-tag">
-                      Date: {selectedDate}
-                      <button className="remove-tag" onClick={() => setSelectedDate('Any Date')}>×</button>
-                    </div>
-                  )}
-                  
-                  {filterOptions.services.map(service => (
-                    <div key={service} className="filter-tag">
-                      {service}
-                      <button 
-                        className="remove-tag" 
-                        onClick={() => setFilterOptions({
-                          ...filterOptions, 
-                          services: filterOptions.services.filter(s => s !== service)
-                        })}
-                      >×</button>
-                    </div>
-                  ))}
-                  
-                  <button className="clear-all-filters" onClick={resetAllFilters}>
-                    Clear All
-                  </button>
-                </div>
+  return (
+    <div className={`search-page ${shouldHideHeaderAndSearch ? 'map-fullscreen-mode' : ''}`}>
+      {!shouldHideHeaderAndSearch && <Header />}
+      
+      {!shouldHideHeaderAndSearch && (
+        <SearchPanel 
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          locationTerm={locationTerm}
+          setLocationTerm={setLocationTerm}
+          selectedDate={selectedDate}
+          setSelectedDate={setSelectedDate}
+          showFilters={showFilters}
+          setShowFilters={setShowFilters}
+          showDatePicker={showDatePicker}
+          setShowDatePicker={setShowDatePicker}
+          filterOptions={filterOptions}
+          setFilterOptions={setFilterOptions}
+          activeSort={activeSort}
+          setActiveSort={setActiveSort}
+          filterPanelRef={filterPanelRef}
+          datePanelRef={datePanelRef}
+          handleSearch={handleSearch}
+          applyFilters={applyFilters}
+        />
+      )}
+
+      <main className={`content-container ${shouldHideHeaderAndSearch ? 'fullscreen' : ''}`}>
+        {!shouldHideHeaderAndSearch && (
+          <div className="results-header">
+            <div className="results-header-content">
+              <div className="results-title">
+                <h1>{locationTerm}: {searchResults.length > 0 ? `${searchResults.length} of ${resultsCount}` : '0'} {category.toLowerCase()}</h1>
+                
+                <ViewToggle 
+                  viewMode={viewMode} 
+                  onToggleView={handleViewModeToggle} 
+                />
               </div>
-            )}
+              
+              {/* Active filters display */}
+              {hasActiveFilters && (
+                <div className="active-filters">
+                  <div className="filter-tags">
+                    {filterOptions.rating > 0 && (
+                      <div className="filter-tag">
+                        {filterOptions.rating}+ Stars
+                        <button className="remove-tag" onClick={() => setFilterOptions({...filterOptions, rating: 0})}>×</button>
+                      </div>
+                    )}
+                    
+                    {(filterOptions.priceRange[0] > 0 || filterOptions.priceRange[1] < 500) && (
+                      <div className="filter-tag">
+                        €{filterOptions.priceRange[0]} - €{filterOptions.priceRange[1]}
+                        <button className="remove-tag" onClick={() => setFilterOptions({...filterOptions, priceRange: [0, 500]})}>×</button>
+                      </div>
+                    )}
+                    
+                    {activeSort !== 'recommended' && (
+                      <div className="filter-tag">
+                        Sort: {activeSort}
+                        <button className="remove-tag" onClick={() => setActiveSort('recommended')}>×</button>
+                      </div>
+                    )}
+                    
+                    {selectedDate !== 'Any Date' && (
+                      <div className="filter-tag">
+                        Date: {selectedDate}
+                        <button className="remove-tag" onClick={() => setSelectedDate('Any Date')}>×</button>
+                      </div>
+                    )}
+                    
+                    {filterOptions.services.map(service => (
+                      <div key={service} className="filter-tag">
+                        {service}
+                        <button 
+                          className="remove-tag" 
+                          onClick={() => setFilterOptions({
+                            ...filterOptions, 
+                            services: filterOptions.services.filter(s => s !== service)
+                          })}
+                        >×</button>
+                      </div>
+                    ))}
+                    
+                    <button className="clear-all-filters" onClick={resetAllFilters}>
+                      Clear All
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
+        )}
         
         <div className={`content-layout ${viewMode}`}>
           <div className="results-container" ref={resultsContainerRef}>
@@ -358,7 +389,20 @@ Check if any filters are active
             </div>
           </div>
           
-          <div className="map-container">
+          <div className={`map-container ${shouldHideHeaderAndSearch ? 'fullscreen' : ''}`}>
+            {shouldHideHeaderAndSearch && (
+              <div className="map-header">
+                <button 
+                  className="back-to-list" 
+                  onClick={() => setViewMode('list')}
+                  aria-label="Back to list view"
+                >
+                  <FaArrowLeft />
+                  <span>Back</span>
+                </button>
+                <div className="map-location">{locationTerm}</div>
+              </div>
+            )}
             <MapView results={searchResults} />
           </div>
         </div>
@@ -366,24 +410,24 @@ Check if any filters are active
         {/* Mobile view toggle button */}
         <button 
           className="mobile-view-toggle"
-          onClick={() => setViewMode(viewMode === 'list' ? 'map' : 'list')}
-          aria-label={`Switch to ${viewMode === 'list' ? 'map' : 'list'} view`}
+          onClick={() => setViewMode(viewMode === 'map' ? 'list' : 'map')}
+          aria-label={`Switch to ${viewMode === 'map' ? 'list' : 'map'} view`}
         >
-          {viewMode === 'list' ? (
-            <>
-              <FaMap />
-              <span>Show Map</span>
-            </>
-          ) : (
+          {viewMode === 'map' ? (
             <>
               <FaList />
               <span>Show List</span>
+            </>
+          ) : (
+            <>
+              <FaMap />
+              <span>Show Map</span>
             </>
           )}
         </button>
       </main>
 
-      <Footer />
+      {!shouldHideHeaderAndSearch && <Footer />}
     </div>
   );
 };
