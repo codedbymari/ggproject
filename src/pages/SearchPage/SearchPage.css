@@ -340,10 +340,12 @@ margin-top: 80px;
   display: block;
 }
 
-.map-container, .search-page, .content-container {
-  transition: all 0.3s ease;
+.map-container {
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
-
+.mobile-view-toggle {
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
 /* Animations */
 @keyframes fadeIn {
   from { opacity: 0; }

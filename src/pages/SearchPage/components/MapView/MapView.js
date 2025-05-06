@@ -28,7 +28,7 @@ const PriceMarker = ({ map, position, price, result }) => {
     });
     
     // Here's where you can swap the Leaflet marker with Google Maps marker
-    // Just make sure it still displays the price in the same style
+    // Just make sure it displays the price in the same style as in the code 
     
     // popup content when you click the pricemarker
     marker.on('click', function() {
@@ -67,15 +67,15 @@ const PriceMarker = ({ map, position, price, result }) => {
   return null;
 };
 
-/* Controls the map view and adds markers on mobile screens
- */
+/* Controls the map view and adds markers on mobile screens */
 const MapController = ({ results, isMobile }) => {
   const map = useMap();
   const firstRenderRef = useRef(true);
   
-  // When switching in to Google Maps, implement map controls here 
+  // When switching to Google Maps, implement map controls here 
   // to keep the same centering and zoom behavior on mobile and desktop
   
+
   // Optimized centering logic with priority for mobile
   useEffect(() => {
     if (!results || results.length === 0) return;
