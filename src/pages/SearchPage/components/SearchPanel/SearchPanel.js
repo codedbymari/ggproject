@@ -1,11 +1,8 @@
-// src/pages/SearchPage/components/SearchPanel/SearchPanel.js
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { FaSearch, FaMapMarkerAlt, FaCalendarAlt, FaSlidersH, FaChevronDown } from 'react-icons/fa';
 import FilterPanel from '../FilterPanel/FilterPanel';
 import DatePicker from '../DatePicker/DatePicker';
 import './SearchPanel.css';
-
-
 
 const SearchPanel = ({
   searchTerm,
@@ -22,11 +19,49 @@ const SearchPanel = ({
   setFilterOptions,
   activeSort,
   setActiveSort,
-  filterPanelRef,
-  datePanelRef,
   handleSearch,
   applyFilters
 }) => {
+  const filterButtonRef = useRef(null);
+  const dateButtonRef = useRef(null);
+  const filterPanelRef = useRef(null);
+  const datePanelRef = useRef(null);
+
+  // Close panels when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (showFilters && 
+          filterPanelRef.current && 
+          !filterPanelRef.current.contains(event.target) &&
+          !filterButtonRef.current.contains(event.target)) {
+        setShowFilters(false);
+      }
+      
+      if (showDatePicker && 
+          datePanelRef.current && 
+          !datePanelRef.current.contains(event.target) &&
+          !dateButtonRef.current.contains(event.target)) {
+        setShowDatePicker(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showFilters, showDatePicker, setShowFilters, setShowDatePicker]);
+
+  // Handle filter apply
+  const handleApplyFilters = () => {
+    applyFilters();
+    setShowFilters(false);
+  };
+
+  // Handle date selection
+  const handleDateSelection = (date) => {
+    setSelectedDate(date);
+  };
+
   return (
     <div className="search-panel">
       <div className="search-container">
@@ -59,9 +94,10 @@ const SearchPanel = ({
         </form>
         
         <div className="search-filters">
-          {/* Date selection  */}
-          <div style={{ position: 'relative' }}>
+          {/* Date selection */}
+          <div className="dropdown-container">
             <button 
+              ref={dateButtonRef}
               className="filter-btn date-btn" 
               onClick={() => {
                 setShowDatePicker(!showDatePicker);
@@ -73,21 +109,22 @@ const SearchPanel = ({
               <span>{selectedDate}</span>
               <FaChevronDown className={`dropdown-icon ${showDatePicker ? 'open' : ''}`} />
             </button>
-             
-               {/* Date picker*/}
-               {showDatePicker && (
+            
+            {/* DatePicker rendered conditionally */}
+            {showDatePicker && (
               <DatePicker 
                 selectedDate={selectedDate}
-                setSelectedDate={setSelectedDate}
+                setSelectedDate={handleDateSelection}
                 onClose={() => setShowDatePicker(false)}
                 datePanelRef={datePanelRef}
               />
             )}
           </div>
           
-            {/* Filter and sorting */}
-            <div style={{ position: 'relative' }}>
+          {/* Filter and sorting */}
+          <div className="dropdown-container">
             <button 
+              ref={filterButtonRef}
               className="filter-btn filter-sort-btn" 
               onClick={() => {
                 setShowFilters(!showFilters);
@@ -99,15 +136,16 @@ const SearchPanel = ({
               <span>Filter & Sort</span>
               <FaChevronDown className={`dropdown-icon ${showFilters ? 'open' : ''}`} />
             </button>
-        
-     {showFilters && (
+            
+            {/* FilterPanel rendered conditionally */}
+            {showFilters && (
               <FilterPanel 
                 filterOptions={filterOptions}
                 setFilterOptions={setFilterOptions}
                 activeSort={activeSort}
                 setActiveSort={setActiveSort}
                 onClose={() => setShowFilters(false)}
-                onApply={applyFilters}
+                onApply={handleApplyFilters}
                 filterPanelRef={filterPanelRef}
               />
             )}

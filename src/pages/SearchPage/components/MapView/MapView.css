@@ -1,187 +1,310 @@
-/* src/pages/SearchPage/components/MapView/MapView.css */
 .map-view {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  /* Custom Price Marker */
-  .custom-price-marker {
-    background: transparent;
-    border: none;
-  }
-  
-  .price-marker {
-    background-color: #D14D72;
-    color: white;
-    border-radius: 4px;
-    padding: 6px 10px;
-    font-weight: 600;
-    font-size: 14px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    position: relative;
-    white-space: nowrap;
-  }
-  
-  .price-marker::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 6px solid #f8adad;
-  }
-  
-  .price-marker:hover {
-    transform: scale(1.1);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-    z-index: 1000 !important;
-  }
-  
-  /* Map Popup */
-  .map-popup {
-    padding: 12px;
-    min-width: 220px;
-  }
-  
-  .map-popup h3 {
-    margin: 0 0 6px 0;
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
-  }
-  
-  .map-popup p {
-    margin: 0 0 8px 0;
-    font-size: 14px;
-    color: #666;
-  }
-  
-  .popup-rating {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    margin-bottom: 8px;
-    font-size: 14px;
-  }
-  
-  .popup-rating .stars {
-    color: #ffc107;
-  }
-  
-  .popup-rating .reviews {
-    color: #888;
-    font-size: 13px;
-  }
-  
-  .popup-service {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-top: 1px solid #f0f0f0;
-    border-bottom: 1px solid #f0f0f0;
-    margin-bottom: 12px;
-    font-size: 14px;
-  }
-  
-  .popup-service strong {
-    color: #333;
-    font-weight: 500;
-  }
-  
-  .popup-service span {
-    font-weight: 600;
-    color: #f8adad;
-  }
-  
-  .popup-btn {
-    background-color: #f8adad;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    width: 100%;
-    transition: all 0.2s ease;
-  }
-  
-  .popup-btn:hover {
-    background-color: #ff4aa6;
-    transform: translateY(-2px);
-  }
-  
-  /* Map Controls */
-  .map-controls {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  will-change: transform; 
+}
+
+/* Mobile Map Header */
+.mobile-map-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  padding: 12px 16px;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-map-location {
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+}
+
+
+
+/* Custom Price Marker */
+.custom-price-marker {
+  background: transparent;
+  border: none;
+}
+
+.price-marker {
+  background-color: #D14D72;
+  color: white;
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  white-space: nowrap;
+  will-change: transform; 
+}
+
+.price-marker::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #D14D72;
+}
+
+.price-marker:hover {
+  transform: scale(1.1);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1000 !important;
+}
+
+/* Map Popup */
+.map-popup {
+  padding: 12px;
+  min-width: 220px;
+}
+
+.map-popup h3 {
+  margin: 0 0 6px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.map-popup p {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.popup-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.popup-rating .stars {
+  color: #ffc107;
+}
+
+.popup-rating .reviews {
+  color: #888;
+  font-size: 13px;
+}
+
+.popup-service {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.popup-service strong {
+  color: #333;
+  font-weight: 500;
+}
+
+.popup-service span {
+  font-weight: 600;
+  color: #D14D72;
+}
+
+.popup-btn {
+  background-color: #D14D72;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+.popup-btn:hover {
+  background-color: #c04368;
+  transform: translateY(-2px);
+}
+
+/* Map Controls */
+.map-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 1000;
+}
+
+.map-control {
+  width: 36px;
+  height: 36px;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.map-control:hover {
+  background-color: #f5f5f5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Leaflet Overrides */
+.leaflet-container {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  will-change: transform; 
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  overflow: hidden;
+}
+
+.leaflet-popup-content {
+  margin: 0;
+  width: auto !important;
+}
+
+.leaflet-popup-tip {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.leaflet-control-zoom {
+  display: none;
+}
+
+/* Performance optimizations */
+.leaflet-tile {
+  will-change: transform; 
+}
+
+.leaflet-fade-anim .leaflet-tile,
+.leaflet-fade-anim .leaflet-popup {
+  will-change: opacity; 
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .mobile-map-view {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 1000;
+    border-radius: 0;
+    padding-top: 48px; 
+    will-change: transform; 
+    -webkit-backface-visibility: hidden; 
   }
   
-  .map-control {
-    width: 36px;
-    height: 36px;
-    background-color: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    font-weight: bold;
-    color: #555;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: all 0.2s ease;
-  }
-  
-  .map-control:hover {
-    background-color: #f5f5f5;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Leaflet Overrides */
   .leaflet-container {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    height: 100% !important; 
+    width: 100% !important;
   }
   
-  .leaflet-popup-content-wrapper {
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 0;
-    overflow: hidden;
+  .leaflet-map-pane {
+    z-index: 400;
   }
   
-  .leaflet-popup-content {
-    margin: 0;
-    width: auto !important;
+  .leaflet-marker-pane {
+    z-index: 600;
   }
   
-  .leaflet-popup-tip {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  .leaflet-popup-pane {
+    z-index: 700;
   }
   
-  .leaflet-control-zoom {
-    display: none;
+  .leaflet-overlay-pane {
+    z-index: 400;
   }
   
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
-    .map-controls {
-      bottom: 70px;
-    }
+  .leaflet-shadow-pane {
+    z-index: 500;
   }
+  
+  .leaflet-marker-icon {
+    z-index: 650 !important; 
+  }
+  
+  /* Mobile controls placement */
+  .map-controls {
+    bottom: 80px;
+    right: 16px;
+  }
+  
+  /* Mobile marker size adjustments */
+  .price-marker {
+    font-size: 12px;
+    padding: 5px 8px;
+    font-weight: 700; 
+  }
+  
+  /* Fix popup placement */
+  .leaflet-popup {
+    margin-top: 10px;
+  }
+  
+  /* Optimized mobile popup sizing */
+  .map-popup {
+    min-width: 200px;
+    max-width: 280px;
+  }
+}
+
+/* Fullscreen mode */
+.map-view:-webkit-full-screen {
+  width: 100%;
+  height: 100%;
+  padding-top: 0; 
+}
+
+.map-view:-moz-full-screen {
+  width: 100%;
+  height: 100%;
+  padding-top: 0;
+}
+
+.map-view:-ms-fullscreen {
+  width: 100%;
+  height: 100%;
+  padding-top: 0;
+}
+
+.map-view:fullscreen {
+  width: 100%;
+  height: 100%;
+  padding-top: 0;
+}

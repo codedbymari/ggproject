@@ -1,11 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './DatePicker.css';
 
-/* DatePicker Component
- */
 const DatePicker = ({ selectedDate, setSelectedDate, onClose, datePanelRef }) => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const datePickerRef = useRef(null);
+  
+  // Calculate position of date picker on mount and window resize
+  useEffect(() => {
+    const positionDatePicker = () => {
+      // Get the date button position
+      if (datePanelRef && datePanelRef.current && datePickerRef.current) {
+        const dateButtonRect = document.querySelector('.date-btn').getBoundingClientRect();
+        const searchPanel = document.querySelector('.search-panel');
+        const searchPanelRect = searchPanel.getBoundingClientRect();
+        
+        // Set position for desktop
+        if (window.innerWidth > 768) {
+          datePickerRef.current.style.top = `${dateButtonRect.bottom + window.scrollY}px`;
+          datePickerRef.current.style.left = `${dateButtonRect.left}px`;
+          
+          const datePickerWidth = 320; 
+          if (dateButtonRect.left + datePickerWidth > window.innerWidth) {
+            datePickerRef.current.style.left = `${dateButtonRect.right - datePickerWidth}px`;
+          }
+        }
+      }
+    };
+
+    positionDatePicker();
+    window.addEventListener('resize', positionDatePicker);
+    
+    return () => {
+      window.removeEventListener('resize', positionDatePicker);
+    };
+  }, [datePanelRef]);
+  
+  // Check for mobile screen size
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   
   // Get current date info
   const today = new Date();
@@ -66,14 +107,27 @@ const DatePicker = ({ selectedDate, setSelectedDate, onClose, datePanelRef }) =>
   const isPreviousMonthDisabled = 
     currentYear === today.getFullYear() && 
     currentMonthIndex === today.getMonth();
+    
+  // Reset date selection
+  const resetDateSelection = () => {
+    setSelectedDate('Any Date');
+  };
 
-  return (
-    <div className="date-picker-panel" ref={datePanelRef}>
+  // DatePicker content
+  const datePickerContent = (
+    <div className="date-picker-panel" ref={(node) => {
+      // Set both refs - the one from props and our local one
+      if (datePanelRef) datePanelRef.current = node;
+      datePickerRef.current = node;
+    }}>
       <div className="date-picker-header">
-        <h3>Select Date</h3>
-        <button className="close-btn" onClick={onClose} aria-label="Close date picker">
-          <FaTimes />
-        </button>
+        <h3>{isMobile ? 'Select a date' : 'Select Date'}</h3>
+        <div className="header-buttons">
+         
+          <button className="close-btn" onClick={onClose} aria-label="Close date picker">
+            <FaTimes />
+          </button>
+        </div>
       </div>
       
       {/* Quick date selection options */}
@@ -139,12 +193,17 @@ const DatePicker = ({ selectedDate, setSelectedDate, onClose, datePanelRef }) =>
       </div>
       
       <div className="date-actions">
+        <button className="reset-date-btn" onClick={resetDateSelection}>
+          {isMobile ? 'Reset' : 'Reset Date'}
+        </button>
         <button className="apply-date-btn" onClick={onClose}>
-          Apply Date
+          {isMobile ? 'Apply' : 'Apply Date'}
         </button>
       </div>
     </div>
   );
+
+  return createPortal(datePickerContent, document.body);
 };
 
 export default DatePicker;

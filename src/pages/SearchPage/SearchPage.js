@@ -231,9 +231,7 @@ const SearchPage = () => {
     }, 600);
   }, [category, filterOptions, activeSort]);
 
-  /**
-   * Reset all filters and search terms
-   */
+  /* Reset all filters and search  */
   const resetAllFilters = useCallback(() => {
     setSearchTerm('');
     setFilterOptions({
@@ -245,7 +243,7 @@ const SearchPage = () => {
     setActiveSort('recommended');
     setSelectedDate('Any Date');
     
-    // Refetch results for current category
+    // Refetch results for category
     setLoading(true);
     setTimeout(() => {
       setSearchResults(dummyData[category] || []);
@@ -254,16 +252,12 @@ const SearchPage = () => {
     }, 300);
   }, [category]);
 
-  /**
-   * Toggle between view modes (split, list, map)
-   */
+  /* Toggle between view modes (split, list, map) */
   const handleViewModeToggle = useCallback((mode) => {
     setViewMode(mode);
   }, []);
 
-  /**
-   * Check if any filters are active
-   */
+  /* Check if any filters are active  */
   const hasActiveFilters = 
     filterOptions.rating > 0 || 
     filterOptions.priceRange[0] > 0 || 
@@ -272,7 +266,7 @@ const SearchPage = () => {
     activeSort !== 'recommended' || 
     selectedDate !== 'Any Date';
 
-  // Determine if we should hide the header and search panel (mobile map view)
+  // Determine to hide the header and search panel (mobile map view)
   const shouldHideHeaderAndSearch = isMobile && viewMode === 'map';
 
   return (
@@ -390,20 +384,10 @@ const SearchPage = () => {
           </div>
           
           <div className={`map-container ${shouldHideHeaderAndSearch ? 'fullscreen' : ''}`}>
-            {shouldHideHeaderAndSearch && (
-              <div className="map-header">
-                <button 
-                  className="back-to-list" 
-                  onClick={() => setViewMode('list')}
-                  aria-label="Back to list view"
-                >
-                  <FaArrowLeft />
-                  <span>Back</span>
-                </button>
-                <div className="map-location">{locationTerm}</div>
-              </div>
-            )}
-            <MapView results={searchResults} />
+            <MapView 
+              results={searchResults} 
+              location={locationTerm} 
+            />
           </div>
         </div>
         
