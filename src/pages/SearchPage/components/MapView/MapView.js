@@ -87,7 +87,7 @@ const MapController = ({ results, isMobile }) => {
       const firstResult = results[0];
       const firstPos = [firstResult.location.lat, firstResult.location.lng];
       
-      // For mobile,  higher zoom and immediate centering for faster perceived performance
+      // For mobile,  higher zoom and immediate centering for faster  performance
       if (isMobile) {
         // Immediate centering on first result
         map.setView(firstPos, 15, { animate: false, duration: 0 });
