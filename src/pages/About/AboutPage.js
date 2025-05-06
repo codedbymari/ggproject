@@ -16,8 +16,7 @@ const AboutPage = () => {
               <div className="hero-content">
                 <h1>Connecting You to the Best Beauty Experts Anytime, Anywhere</h1>
                 <p className="hero-description">
-                  Glamorgram is a seamless beauty booking platform that connects clients with top professionals nearby, making it easy to browse, book, and glow—no DMs, no hassle.
-                </p>
+                Glamorgram is a seamless beauty booking platform that connects clients with top professionals nearby, making it easy to browse, book, and glow—no DMs, no hassle.                </p>
               </div>
               
               <div className="hero-illustrations">
@@ -150,15 +149,15 @@ const AboutPage = () => {
                 </div>
                 <div className="mission-text">
                   <p>
-                    At GlamorGram, we are revolutionizing the beauty industry by providing
-                    seamless access to skilled beauty professionals offering personalized services.
-                    Whether you are preparing for a special event, require a quick touch-up, or simply wish to
-                    indulge in self-care, our platform makes it effortless to discover and book the right expert.
+                  At GlamorGram, we are revolutionizing the beauty industry by providing seamless
+                  access to skilled beauty professionals offering personalized services. Whether you are
+                  preparing for a special event, require a quick touch-up, or simply wish to indulge in self-care, our
+                  platform makes it effortless to discover and book the right expert. 
                   </p>
                   <p>
-                    With a streamlined process for finding talented beauty freelancers, scheduling appointments,
-                    and making secure payments, GlamorGram guarantees a convenient and reliable experience. From hairstylists to nail
-                    technicians, we connect you with top-tier professionals to meet your needs for any occasion.
+                  With a streamlined process for finding trusted beauty freelancers, scheduling appointments, and making secure payments,
+                  GlamorGram ensures a convenient and reliable experience. From hairstylists to nail technicians,
+                  we connect you with top-tier professionals to meet your needs for any occasion.
                   </p>
                 </div>
               </div>
@@ -173,9 +172,11 @@ const AboutPage = () => {
                 </div>
                 <div className="vision-text">
                   <p>
-                    We aim to empower beauty professionals to grow their businesses while ensuring customers enjoy high-quality, on-demand beauty services.
-                    GlamorGram is more than an app—it's a thriving community where creativity meets convenience,
-                    enabling professionals to showcase their talents while clients access exceptional services tailored to their unique needs.
+                  We aim to empower beauty professionals to grow their businesses while ensuring
+                  customers enjoy high-quality, on-demand beauty services. GlamorGram is more than an
+                  app—it’s a thriving community where creativity meets convenience, enabling
+                  professionals to showcase their talents while clients access exceptional services tailored
+                  to their unique needs.
                   </p>
                 </div>
               </div>
@@ -207,54 +208,71 @@ const AboutPage = () => {
                   {activeTab === 'clients' ? (
                     <div className="steps-container clients-steps">
                       <div className="step">
-                        <div className="step-icon">1</div>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="currentColor"/>
+                          </svg>
+                        </div>
                         <div className="step-content">
-                          <h3>Search for services</h3>
                           <p>Browse verified profiles of hairstylists, makeup artists, nail technicians, and more.</p>
                         </div>
                       </div>
                       
-                    
-                      
                       <div className="step">
-                        <div className="step-icon">3</div>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" fill="currentColor"/>
+                          </svg>
+                        </div>
                         <div className="step-content">
-                          <h3>Secure payment</h3>
-                          <p>Pay securely through our platform with various payment options.</p>
+                          <p>Book and schedule services based on your needs.</p>
                         </div>
                       </div>
                       
                       <div className="step">
-                        <div className="step-icon">4</div>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z" fill="currentColor"/>
+                          </svg>
+                        </div>
                         <div className="step-content">
-                          <h3>Enjoy your beauty experience</h3>
-                          <p>Receive professional service without awkward DMs or hassle.</p>
+                          <p>Pay securely through our platform.</p>
                         </div>
                       </div>
                     </div>
                   ) : (
                     <div className="steps-container freelancer-steps">
                       <div className="step">
-                        <div className="step-icon">1</div>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="currentColor"/>
+                          </svg>
+                        </div>
                         <div className="step-content">
-                          <h3>Create a detailed profile</h3>
-                          <p>Showcase pictures of your work highlighting your expertise and specialties.</p>
+                          <p>Create a detailed profile with pictures of your work showcasing your expertise.</p>
                         </div>
                       </div>
                       
                       <div className="step">
-                        <div className="step-icon">2</div>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" fill="currentColor"/>
+                          </svg>
+                        </div>
                         <div className="step-content">
-                          <h3>Set your terms</h3>
-                          <p>Define your availability, pricing, and service area to attract the right clients.</p>
+                          <p>Set your availability, pricing, and service area.</p>
                         </div>
                       </div>
                       
                       <div className="step">
-                        <div className="step-icon">3</div>
+                        <div className="step-icon">
+                          <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z" fill="currentColor"/>
+                          </svg>
+                        </div>
                         <div className="step-content">
-                          <h3>Grow your business</h3>
-                          <p>Use GlamorGram's tools for managing clients, appointments, and payments.</p>
+                          <p>Grow your business with GlamorGram’s tools for managing clients and
+                          appointments.</p>
                         </div>
                       </div>
                     </div>
