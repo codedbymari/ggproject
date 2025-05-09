@@ -248,7 +248,7 @@ const Header = () => {
                 <img src={tiktokIcon} alt="TikTok" />
               </a>     
             </div>
-            <p>© 2025 Glamorgram </p>
+            <p>© 2025 GlamorGram </p>
           </div>
         </nav>
                 <div className="header-actions">

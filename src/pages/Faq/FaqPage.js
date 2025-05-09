@@ -30,23 +30,19 @@ const FaqPage = () => {
     {
       id: 'c2',
       question: 'Is payment secure?',
-      answer: 'All transactions are protected and transparent, giving you total peace of mind.'
+      answer: 'Yes! All payments are processed securely through our platform, ensuring transparency and peace of mind.'
     },
     {
       id: 'c3',
       question: 'How do I find a beauty professional near me?',
-      answer: 'Search by location, service, or schedule to discover the perfect beauty professional for your needs.'
+      answer: 'Simply search by location, service type, or availability, and browse profiles of verified freelancers.'
     },
     {
       id: 'c4',
       question: 'Can I read reviews before booking?',
-      answer: 'Absolutely! Browse real reviews and ratings from past clients to help you choose the right professional.'
-    },
-    {
-      id: 'c5',
-      question: 'What if I need to cancel or reschedule?',
-      answer: 'No worries! You can easily manage your appointments through your dashboard - just check the cancellation policy for each pro.'
+      answer: 'Absolutely! Browse reviews and ratings from past clients to help you choose the right professional.'
     }
+   
   ];
 
   // Freelancer FAQs 
@@ -59,7 +55,7 @@ const FaqPage = () => {
     {
       id: 'f2',
       question: 'How do clients find me?',
-      answer: 'Clients can discover you by searching for services by your area or browsing based on availability and ratings.'
+      answer: 'Clients can discover you by searching for services in your area or browsing based on availability and ratings.'
     },
     {
       id: 'f3',
@@ -69,12 +65,12 @@ const FaqPage = () => {
     {
       id: 'f4',
       question: 'Does GlamorGram take a commission?',
-      answer: 'Yes, a small commission is applied to each booking, helping us maintain the platform and support your business.'
+      answer: 'No, all verified freelancers enjoy access to the platform at no cost!'
     },
     {
       id: 'f5',
       question: 'How do I get paid?',
-      answer: 'Payments are processed securely through our platform. You can set up direct deposits to your bank account or use other available payment methods.'
+      answer: 'Payments are processed securely through our platform. You can withdraw directly to your bank account or use other available payment methods.'
     }
   ];
 
