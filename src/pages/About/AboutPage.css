@@ -63,14 +63,13 @@ p {
 
 .hero-content {
   max-width: 700px;
+  max-height: 300px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
   padding: 0 20px;
-  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 16px;
   padding: 30px;
-  backdrop-filter: blur(5px);
 }
 
 .hero-content h1 {
@@ -124,37 +123,18 @@ p {
   transform: rotate(-5deg);
 }
 
-.makeup-tools-illustration {
-  bottom: 12%;
-  right: 12%;
-  width: 120px;
-  height: 100px;
-  transform: rotate(5deg);
-}
 
-.hair-tools-illustration {
-  top: 15%;
-  right: 30%;
-  width: 120px;
-  height: 100px;
-  transform: rotate(-8deg);
-}
+
 
 .phone-illustration {
-  bottom: 20%;
-  right: 35%;
-  width: 70px;
-  height: 130px;
+  bottom: 12%;
+  right: 12%;
+  width: 90px;
+  height: 100px;
   transform: rotate(5deg);
 }
 
-.mirror-illustration {
-  bottom: 15%;
-  left: 35%;
-  width: 90px;
-  height: 130px;
-  transform: rotate(-5deg);
-}
+
 
 /* Section Styling */
 .section-header {
