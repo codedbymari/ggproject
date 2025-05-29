@@ -5,7 +5,7 @@ src/
 ├── assets/            # Static assets (images, icons)
 ├── components/        # Reusable UI components
 │   ├── Auth/          # Login/signup components
-│   ├── Features/      # "Why Choose GG" section on the home page
+│   ├── Features/      # "Why Choose" section on the home page
 │   ├── Footer/        # Footer
 │   ├── Header/        # Navigation and header
 │   ├── Hero/          # Hero section
@@ -16,7 +16,7 @@ src/
 ├── constants/         # Image paths for dummy data
 ├── pages/             # Page components
 │   ├── About/         # About page
-│   ├── Business/      # GG Business page
+│   ├── Business/      # Business page
 │   ├── ContactUs/     # Contact US page
 │   ├── Faq/           # FAQ page
 │   ├── FreelancerGuide/ # Resources for Freelancers
